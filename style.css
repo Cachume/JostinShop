@@ -1,0 +1,341 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    font-size: 16px; /* Tamaño base */
+}
+
+.cabecera {
+    position: relative;
+    background-image: url('src/Tienda.png');
+    background-size: cover;
+    background-position: center;
+    height: 611px;
+    width: 100%;
+    margin: auto;
+}
+
+.cabecera .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cabecera .overlay .text-container {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.cabecera .overlay h1 {
+    margin: 0;
+    font-size: 3rem;
+    font-family: 'Bebas Neue';
+    color: rgba(241, 138, 62, 1);
+}
+
+.cabecera .overlay p {
+    margin: 10px 0 0;
+    font-size: 1.5rem;
+    width: fit-content;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    color: rgba(255, 255, 255, 1);
+    font-family: 'Montserrat';
+}
+
+.categorias {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    height: 465px;
+    font-family: 'Montserrat';
+}
+
+.categoria {
+    text-align: center;
+    width: 310px;
+    height: 310px;
+    position: relative;
+    margin-top: 70px;
+}
+
+.categoria img {
+    width: 100%;
+    border-radius: 70%;
+    display: block;
+}
+
+.categoria h3 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.2rem;
+    background-color: rgb(241, 138, 62, 1);
+    padding: 5px 10px;
+    border-radius: 90px;
+    color: white;
+}
+
+.Acerca-de {
+    position: relative;
+    background-image: url('src/Ropa.png');
+    background-size: cover;
+    background-position: center;
+    height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Acerca-de .overlay {
+    position: relative;
+    background-color: rgba(255, 117, 20, 1);
+    padding: 20px;
+    border-radius: 10px;
+    width: 938px;
+    height: 550px;
+    margin-right: -20%; 
+}
+
+.Acerca-de h2 {
+    text-align: left;
+    font-size: 3rem;
+    margin: 0;
+    margin-left: 20px;
+    margin-top: 30px;
+    color: #fff;
+    font-family: 'Bebas Neue';
+}
+
+.Acerca-de .parrafos {
+    text-align: left;
+    color: #fff;
+    font-size: 1rem;
+    width: 866px;
+    height: 308px;
+    margin: 0;
+    margin-left: 20px;
+    font-family: 'Montserrat';
+}
+
+.Acerca-de p {
+    margin: 15px 0;
+}
+
+.contacto {
+    background-color: rgba(0, 0, 0, 1);
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.contacto h3 {
+    font-size: 2.5rem;
+    display: flex;
+    color: rgba(241, 138, 62, 1);
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    font-family: 'Bebas Neue';
+}
+
+.contacto h3::before, .contacto h3::after {
+    content: '';
+    flex: 1;
+    border-bottom: 2px solid white;
+    margin: 0 20px;
+}
+
+.contacto .contact-content {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 20px;
+}
+
+.contacto .contact-content > div {
+    margin: 0 20px;
+    text-align: left;
+}
+
+.contacto h4 {
+    color: rgba(244, 170, 16, 1);
+    font-family: 'Bebas Neue';
+    font-size: 1.875rem;
+    margin-bottom: 10px;
+}
+
+.contacto p {
+    color: white;
+    font-size: 0.875rem;
+    margin: 5px 0;
+    font-family: 'Montserrat';
+}
+
+.contacto .logo {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.social-icons .icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgba(20, 20, 20, 1); 
+    margin: 0 10px;
+}
+
+.social-icons img {
+    width: 30px;
+    height: 30px;
+}
+
+@media (max-width: 1080px) { 
+    .cabecera .overlay h1 { 
+        font-size: 2.5rem; 
+    } 
+    .cabecera .overlay p { 
+        font-size: 1.7rem; 
+    } 
+    .Acerca-de h2 { 
+        font-size: 2.5rem; 
+    } 
+    .Acerca-de .parrafos { 
+        width: 90%; 
+        font-size: 1rem; 
+    }
+    .contacto .logo {
+        width: 200px;
+        height: 200px;
+    }
+    .contacto h3 {
+        font-size: 2.3rem;
+    }
+
+    .contacto h4 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    .cabecera .overlay h1 {
+        font-size: 2rem;
+    }
+
+    .cabecera .overlay p {
+        font-size: 1.2rem;
+    }
+
+    .categorias {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+    }
+
+    .categoria {
+        width: 80%;
+        margin-top: 30px;
+    }
+
+    .Acerca-de {
+        flex-direction: column;
+        height: auto;
+        margin-right: 0;
+    }
+
+    .Acerca-de .overlay {
+        width: 90%;
+        margin: 20px 0;
+    }
+
+    .Acerca-de h2 {
+        font-size: 2rem;
+    }
+
+    .Acerca-de .parrafos {
+        width: 100%;
+        font-size: 0.75rem; /* Ajusta a 12px */
+    }
+
+    .contacto .contact-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contacto .contact-content > div {
+        margin: 20px 0;
+        text-align: center;
+    }
+
+    .contacto .logo {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 12px;
+    }
+
+    .cabecera {
+        height: 450px;
+    }
+
+    .cabecera .overlay h1 {
+        font-size: 1.5rem;
+    }
+
+    .cabecera .overlay p {
+        font-size: 1rem;
+    }
+
+    .categoria {
+        width: 100%;
+        margin-top: 35px;
+    }
+
+    .Acerca-de h2 {
+        font-size: 1.5rem;
+        margin-left: 5px;
+    }
+
+    .Acerca-de .parrafos {
+        font-size: 0.625rem; /* Ajusta a 10px */
+        margin-left: 5px;
+    }
+
+    .contacto h3 {
+        font-size: 2rem;
+    }
+
+    .contacto h4 {
+        font-size: 1.5rem;
+    }
+}
