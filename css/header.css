@@ -7,7 +7,7 @@ body {
     background-color: #f4f4f4;
     font-size: 16px; /* Tamaño base */
 }
-/* Estilos para el header en dispositivos móviles */
+
 .header-mobile {
     background: rgb(255, 117, 20);
     height: 60px;
@@ -34,12 +34,12 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 0;
     height: 100%;
     background-color: rgba(255, 117, 20, 0.95); /* Fondo con color semitransparente */
     z-index: 1000; /* Asegura que el sidebar esté por encima de otros elementos */
-    overflow-x: hidden; /* Evita desplazamiento horizontal */
-    transition: width 0.5s; /* Transición suave para el ancho */
+    overflow-x: hidden;
+    transition: width 0.5s; 
 }
 
 .sidebar img {

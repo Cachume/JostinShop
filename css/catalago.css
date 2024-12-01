@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+
+.contenedor-catalago {
+    display: grid; 
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 15px; 
+    padding: 20px; 
+}
+
+.titulo-catalogo {
+    font-family: 'Bebas Neue'; 
+    font-size: 2.5rem; 
+    text-align: center; 
+}
+
+.contenedor-catalago a {
+    text-decoration: none; 
+    display: block; 
+    color: inherit; /* Hereda el color del texto del ítem */
+    cursor: pointer; 
+}
+
+.item {
+    position: relative; 
+    background-color: #f4f4f4; 
+    height: 300px; 
+    border-radius: 10px; 
+    overflow: hidden; 
+    font-family: 'Montserrat'; 
+    font-weight: bold; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra alrededor del ítem */
+    transition: transform 0.3s, box-shadow 0.3s; /* Transición suave para transformaciones y sombras */
+}
+
+.item img {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; /* Ajusta la imagen para cubrir completamente el contenedor sin distorsionarse */
+}
+
+.item:hover {
+    transform: scale(1.05); /* Escala el ítem ligeramente */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Aumenta la sombra para dar efecto de elevación */
+}
+
+
+.item::after {
+    content: ''; /* Contenido vacío */
+    display: block; 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0; 
+    background: rgba(0, 0, 0, 0.2); 
+}
+
+.item span {
+    position: relative; 
+    z-index: 1; /* Eleva el nivel del índice z para superponer el pseudo-elemento ::after */
+    color: white; 
+    text-shadow: 1px 1px 2px black; /* Sombra del texto */
+    font-size: 2em; 
+    padding: 10px; 
+    text-align: center; 
+    width: 100%; 
+    bottom: 0; 
+}
+
+.item span {
+    position: absolute; 
+    bottom: 10px; 
+    left: 50%; 
+    transform: translateX(-50%); /* Centra horizontalmente */
+}
+
+@media (max-width: 1024px) {
+    .contenedor-catalago {
+        grid-template-columns: repeat(3, 1fr); 
+    }
+    .item {
+        height: 250px; 
+    }
+    .item img {
+        height: 250px; 
+    }
+    .item span {
+        font-size: 1.9em; 
+    }
+}
+
+@media (max-width: 768px) {
+    .contenedor-catalago {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+    .item {
+        height: 230px; 
+    }
+    .item img {
+        height: 230px; 
+    }
+    .item span {
+        font-size: 1.7em;
+    }
+}
+
+@media (max-width: 480px) {
+    .contenedor-catalago {
+        grid-template-columns: 1fr; 
+    }
+    .item {
+        height: 200px; 
+    }
+    .item img {
+        height: 200px; 
+    }
+    .item span {
+        font-size: 1.5em; 
+    }
+}
+
+/* Ocultar el contenido del catálogo cuando el sidebar está abierto */
+body.sidebar-open .contenedor-catalago,
+body.sidebar-open .titulo-catalogo {
+    display: none; /* Oculta el contenido del catálogo */
+}
+
+
+
