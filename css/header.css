@@ -11,7 +11,7 @@ body {
 .header-mobile {
     background: rgb(255, 117, 20);
     height: 60px;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: space-between;
     padding: 0px 10px 0px 10px;
@@ -79,6 +79,7 @@ body {
 .header-desktop {
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
 }
 
 .header-bar {
@@ -98,17 +99,20 @@ body {
 }
 
 .header-bar a {
-    background: white;
+    background: transparent;
     color: rgb(255, 117, 20);
     text-decoration: none;
     font-weight: bold;
     padding: 8px 10px;
-    border-radius: 10px;
+}
+
+.header-r img{
+    width: 28px;
+    height: 28px;
 }
 
 .header-nav {
-    background: black;
-    padding-left: 30px;
+    background: transparent;
 }
 
 .header-nav a {
@@ -130,5 +134,9 @@ body {
 @media only screen and (max-width: 900px) {
     .header-desktop {
         display: none;
+    }
+
+    .header-mobile{
+        display: flex;
     }
 }
