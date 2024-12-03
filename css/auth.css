@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 body{
-    background: #e6e6e6;
+    background: #26262e;
 }
 
 .header-control{
@@ -18,14 +18,18 @@ body{
     justify-content: center;
 }
 
+
 .auth-container{
     display: flex;
-    box-shadow: 5px 5px 20px gray;
+    /* box-shadow: 2px 2px 20px gray; */
+    /* border: 1px solid white; */
+    margin-top: 0rem;
 }
 
 .auth-info{
     background: rgb(255, 117, 20);
     width: 500px;
+    border-radius: 0px 20px 20px 0px;
 }
 
 .auth-container form{
@@ -34,9 +38,10 @@ body{
     align-items: center;
     justify-content: center;
     gap: 10px;
-    background: white;
+    background: #26262e;
     padding: 40px;
-    height: 400px;
+    height: 550px;
+    width: 500px;
 }
 
 .auth-container form button{
@@ -53,15 +58,15 @@ body{
 }
 
 .auth-container form img{
-    width: 70px;
+    width: 90px;
 }
 
 .auth-title{
     text-align: center;
+    font-family: 'Roboto';
 }
 
 .auth-title h1{
-    font-size: 'Roboto';
     font-weight: bolder;
     color: rgb(255, 117, 20);
 }
@@ -69,6 +74,7 @@ body{
 .auth-title p{
     font-size: 14px;
     font-weight: bolder;
+    color: white;
 }
 
 .auth-input{
@@ -84,6 +90,7 @@ body{
     width: 300px;
     margin-bottom: 10px;
     border-radius: 10px;
+
 }
 .auth-input span{
     text-align: left;
