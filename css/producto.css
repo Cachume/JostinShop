@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.contenedor {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    background-color: #fff;
+    padding: 20px;
+    border: none;
+}
+
+.producto {
+    display: flex;
+    gap: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+}
+
+.imagenes-producto {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 100px;
+}
+
+.imagenes-producto img {
+    width: 64px;
+    height: 92px;
+    border: 1px solid #ddd;
+    padding: 5px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.imagen-principal {
+    width: 400px;
+    height: 500px;
+    border: 1px solid #ddd;
+    padding: 5px;
+    background-color: #fff;
+    border: none;
+}
+
+.detalles-producto {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-left: 80px;
+}
+
+.detalles-producto h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-family: 'Montserrat';
+}
+
+
+.detalles-producto .precio {
+    color: #e67e22;
+    font-size: 25px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.detalles-producto .redes-sociales {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.detalles-producto .redes-sociales span {
+    margin-right: 10px;
+    color: #555;
+    font-family: 'Montserrat';
+    font-size: 15px;
+}
+
+.detalles-producto .redes-sociales img {
+    width: 30px;
+    height: auto;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.detalles-producto .boton-comprar {
+    background-color: #3820a1;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 10px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+.detalles-producto .boton-comprar p{
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Montserrat';
+    width: 100%;
+    font-size: 0.8rem;
+}
+
+.detalles-producto .boton-comprar:hover {
+    background-color: #6c2097;
+}
+
+.detalles-producto .cantidad {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    
+}
+
+.detalles-producto .cantidad input {
+    width: 50px;
+    padding: 5px;
+    margin-right: 10px;
+    font-family: 'Montserrat';
+}
+
+.detalles-producto .boton-agregar-carrito {
+    background-color: #961c71;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 10px;
+    font-family: 'Montserrat';
+    font-weight: bold;
+}
+
+.detalles-producto .boton-agregar-carrito:hover {
+    background-color: #8b1e62;
+}
+
+.detalles-producto .lista-deseos {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.detalles-producto .lista-deseos img {
+    width: 30px;
+    height: auto;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.corazon-like {
+    width: 30px;
+    height: auto;
+    cursor: pointer;
+}
+
+
+.detalles-producto .opciones-pago {
+    display: flex;
+    gap: 10px;
+    margin-top: 35px;
+}
+
+.detalles-producto .opciones-pago img {
+    width: 50px;
+}
+
+.pestanas {
+    display: flex;
+    cursor: pointer;
+    margin-top: 20px;
+    border-bottom: 2px solid #ddd;
+    font-family: 'Montserrat';
+}
+
+.pestana {
+    padding: 10px 20px;
+    border-top: 2px solid transparent;
+    border-left: 2px solid transparent;
+    border-right: 2px solid transparent;
+    margin-right: 10px;
+}
+
+.pestana.activa {
+    border-color: #ddd;
+    background-color: #fff;
+    font-weight: bold;
+}
+
+.contenido-pestana {
+    display: none;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-top: none;
+    font-family: 'Montserrat';
+}
+
+.contenido-pestana.activa {
+    display: block;
+}
+
+
+@media (max-width: 768px) {
+    .producto {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .imagenes-producto {
+        flex-direction: row;
+        max-width: 100px;
+        order: 1; 
+        align-self: flex-start; 
+    }
+
+    .imagen-principal {
+        width: 150px;
+        max-width: 400px;
+        height: auto;
+        order: 2; 
+        align-self: flex-start; 
+        margin-left: 20px;
+    }
+
+    .detalles-producto {
+        width: 100%;
+        order: 3; /* Tercer elemento */
+        margin:0;
+    }
+
+    .imagenes-producto img {
+        width: 50px;
+        height: 70px;
+    }
+}
