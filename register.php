@@ -64,6 +64,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <img src="src/agregarn.png" alt="" srcset="">
                     <h1>Registro</h1>
                     <p>Hola amigo. Ingresa tus datos para Continuar!</p>
+                    <?php
+                    if(isset(($errors))){
+                        echo "<span class='error-form'>Error enviando el formulario revisa los campos.</span>";
+                    }
+                ?>
+                    
                 </div>
                 <div class="auth-input">
                     <input type="text" name="useremail" id="" placeholder="Correo Electronico:">
@@ -86,13 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </form>
             <div class="auth-info">
                 <img src="" alt="" srcset="">
-                <?php
-                    if(isset(($errors))){
-                        foreach ($errors as $error) {
-                            echo "<p style='color: red;'>$error</p>";
-                        }
-                    }
-                ?>
+                
             </div>
         </div>
     </main>
