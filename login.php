@@ -1,4 +1,5 @@
 <?php
+session_start();
 if(isset($_POST['authlogin'])){
     $errors = [];
 
@@ -9,10 +10,19 @@ if(isset($_POST['authlogin'])){
     if (empty($_POST["userpass"])) {
         $errors[] = "El campo de cédula de identidad no puede estar vacío.";
     }
-    var_dump($errors);
+    //var_dump($errors);
     if (empty($errors)) {
-        echo "Verificando";
+        include_once("libs/libLogin.php");
+        $rlogin=logUser($_POST["useremail"],$_POST["userpass"]);
+        var_dump($rlogin);
+        if(!$rlogin){
+            echo("ERROR");
+            foreach ($rlogin as $value) {
+                $errors[] = $value;
+            }
+        }
     }
+    var_dump($errors);
 }
 ?>
 <!DOCTYPE html>
@@ -41,8 +51,7 @@ if(isset($_POST['authlogin'])){
                     if(!empty(($errors))){
                         echo "<span class='error-form'>Error enviando el formulario revisa los campos.</span>";
                     }
-                ?>
-                    
+                ?>    
                 </div>
                 <div class="auth-input">
                     <input type="email" name="useremail" id="" placeholder="Correo Electronico:" >
@@ -52,7 +61,7 @@ if(isset($_POST['authlogin'])){
                     <input type="password" name="userpass" id="" placeholder="Contraseña:">
                     <span></span>
                 </div>
-                <a href="register.html">¿No tienes una Cuenta?</a>
+                <a href="register.php">¿No tienes una Cuenta?</a>
                 <button type="submit" name="authlogin">Continuar</button>
             </form>
             <div class="auth-info">

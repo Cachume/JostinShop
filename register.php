@@ -87,7 +87,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="password" name="userpassc" id="" placeholder="Confirmar Contraseña:" >
                     <span></span>
                 </div>
-                <a href="login.html">Ya tengo una cuenta</a>
+                <a href="login.php">Ya tengo una cuenta</a>
                 <button type="submit">Continuar</button>
             </form>
             <div class="auth-info">
