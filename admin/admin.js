@@ -1,8 +1,18 @@
+var ventanatema = document.getElementById("ventanatema");
+var fondotema = document.getElementById("fondotema");
 
-function openMenu() {
-    document.getElementById("header_menu").style.left= "0px";
-}
+btncatalogo.addEventListener("click", function (){
 
-function closeMenu() {
-    document.getElementById("header_menu").style.left = "-300px"
-}
+    ventanatema.style.display = "flex";
+
+})
+
+fondotema.addEventListener("click", function () {
+    
+    ventanatema.style.display ="none";
+
+})
+
+document.getElementById("closev").addEventListener("click", function (){
+    ventanatema.style.display ="none";
+})

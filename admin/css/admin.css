@@ -111,3 +111,141 @@ header h2 {
     color: #bdc3c7;
 }
 
+/* Propiedades Catalogo */
+.editar img{
+    box-sizing: border-box;
+    background: #09add6;
+    width: 29px;
+    height: 29px;
+    padding:4px;
+}
+
+.eliminar img{
+    box-sizing: border-box;
+    background: red;
+    padding:4px;
+    width: 29px;
+    height: 29px;
+}
+
+.tabla_catalogo{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabla_catalogo thead tr td{
+    text-align: left;
+    padding: 10px;
+    background: #3d7ba8;
+    color: white;
+    font-weight: bolder;
+}
+
+.tr_fila{
+    background: white;
+    padding: 4px;
+}
+.tr_fila:nth-child(odd){
+    background-color: #efefef;
+}
+.nuevo_catalogo{
+    box-sizing: border-box;
+    padding: 10px;
+    text-align: center; /* Centrar horizontalmente */
+    vertical-align: middle; /* Centrar verticalmente */
+}
+
+.nuevo_catalogo button{
+    background: #07f060;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+/* Ventana Modal */
+
+.ventanatema{
+    position:absolute;
+    top: 0;
+    z-index: 1000px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.fondotema{
+    background: black;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+}
+
+.ventanatema form{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    flex-direction: column;
+    position:absolute;
+    padding: 10px;
+    opacity: 1;
+    background: white;
+    padding: 30px;
+    width: 300px;
+    height: 300px;
+}
+
+.ventanatema form h2{
+    color: #083358;
+    font-weight:  bolder;
+    margin-bottom: 1rem;
+}
+
+
+.ventanatema label{
+    font-weight: bolder;
+    margin-bottom: 5px;
+}
+
+.ventanatema input{
+    width: 250px;
+    height: 30px;
+    padding: 3px;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    border: .5px solid black;
+    background-color: #f6f6f6;
+}
+
+.ventanatema textarea{
+    resize: none;
+    padding: 1px;
+    height: 50px;
+    width: 250px;
+    border-radius: 5px;
+    background-color: #f6f6f6;
+    margin-bottom: 10px;
+    border: 1px solid black;
+}
+
+.ventanatema form button:nth-child(1){
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.ventanatema form button:nth-child(2){
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bolder;
+    cursor: pointer;
+}

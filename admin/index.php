@@ -13,7 +13,7 @@
         <ul>
             <li><a href="#"><i class="fas fa-tachometer-alt"></i> Inicio</a></li>
             <li><a href="#"><i class="fas fa-users"></i> Usuarios</a></li>
-            <li><a href="#"><i class="fas fa-box-open"></i> Productos</a></li>
+            <li><a href="#"><i class="fas fa-box-open"></i> Catalogo</a></li>
             <li><a href="#"><i class="fas fa-shopping-cart"></i> Compras</a></li>
             <li><a href="#"><i class="fas fa-cog"></i> Ajustes</a></li>
             <li><a href="#"><i class="fas fa-sign-out-alt"></i> Salir</a></li>
