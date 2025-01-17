@@ -10,43 +10,11 @@
 
 <body>
     <header>
-        <div class="header-desktop">
-            <div class="header-bar">
-                <span class="header-title">
-                    Maak Store
-                </span>
-                <a href="#">Iniciar Sesion</a>
-            </div>
-            <nav class="header-nav">
-                <a href="index.html">INICIO</a>
-                <a href="./Catalago.html">CATALOGO</a>
-                <a href="index.html">CARRITO</a>
-                <a href="index.html">NOSOTROS</a>
-                <a href="index.html">N</a>
-            </nav>
-        </div>
-        <div class="header-mobile">
-            <img src="src/lista(1).png" alt="" srcset="" onclick="menuShow();">
-            <span class="header-title">
-                Maak Store
-            </span>
-            <img src="src/carrito-de-compras.png" alt="" srcset="">
-        </div>
-        <div class="sidebar" id="sidebar">
-            <!-- Contenido del menú lateral -->         
-            <ul>
-                <img src="src/x.png" alt="" onclick="menuShow();">
-                <li><a href="./index.html">Inicio</a></li>
-                <li><a href="./Catalago.html">Catálogo</a></li>
-                <li><a href="#">Contacto</a></li>
-                <!-- Agrega más enlaces según sea necesario -->
-            </ul>
-        </div>      
+     
     </header>
 
     <main>
         <h3 class="titulo-catalogo">Catálogo</h3>
-
         <div class="contenedor-catalago">
             <a href="#">
                 <div class="item">

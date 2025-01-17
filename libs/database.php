@@ -49,7 +49,6 @@
                 return 'E82';
             } 
         }
-
         public function iniciarSesion($correo,$contrasena){
             try {
                 $query= $this->dbc->prepare("SELECT id, cdi, email, password FROM `clientes` WHERE email= ?");
@@ -64,6 +63,23 @@
                         return false;
                 }
                 }else{
+                    return false;
+                }
+            }catch (Exception $th) {
+                echo($th->getMessage());
+                return 'E82';
+            } 
+        }
+
+        public function getCatalogo(){
+            try {
+                $query = $this->dbc->prepare("SELECT * FROM catalogo");
+                $query->execute();
+                $resultado = $query->get_result();
+                if($resultado->num_rows > 0){
+                    return $resultado->fetch_all(MYSQLI_ASSOC);
+                }else{
+                    // echo("No hay datos");
                     return false;
                 }
             }catch (Exception $th) {

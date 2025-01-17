@@ -7,14 +7,14 @@ body{
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    margin-top: 7rem;
+    margin-top: 6rem;
 }
 
 .carrito_box {
     width: 800px;       /* Ancho inicial */
     max-width: 100%;    /* Nunca excede el tamaño de la pantalla */
     box-sizing: border-box; /* Considera padding y bordes dentro del ancho */
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
 }
 
 .carrito_title{
@@ -55,6 +55,7 @@ body{
     font-size: 25px;
 }
 button {
+    margin-top: 3rem;
     background-color: #4CAF50;
     color: white;
     border: none;
