@@ -53,6 +53,8 @@ body {
     flex-grow: 1;
     background-color: #f4f7f6;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 header {
@@ -60,7 +62,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding-bottom: 10px;
-    border-bottom: 2px solid #bdc3c7;
+    /* border-bottom: 2px solid #bdc3c7; */
 }
 
 header h2 {
@@ -172,7 +174,7 @@ header h2 {
     z-index: 1000px;
     width: 100%;
     height: 100%;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
 
@@ -248,4 +250,20 @@ header h2 {
     padding: 10px 20px;
     font-weight: bolder;
     cursor: pointer;
+}
+
+.error{
+    color: red;
+    text-align: center;
+    padding: 10px;
+    font-weight: bolder;
+    font-size: 18px;
+}
+
+.success{
+    color: green;
+    text-align: center;
+    padding: 10px;
+    font-weight: bolder;
+    font-size: 18px;
 }

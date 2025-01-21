@@ -73,7 +73,25 @@
 
         public function getCatalogo(){
             try {
-                $query = $this->dbc->prepare("SELECT * FROM catalogo");
+                $query = $this->dbc->prepare("SELECT c.*, (SELECT COUNT(*) FROM productos p WHERE p.id_categoria= c.id_categoria) AS total_productos FROM catalogo c");
+                $query->execute();
+                $resultado = $query->get_result();
+                if($resultado->num_rows > 0){
+                    return $resultado->fetch_all(MYSQLI_ASSOC);
+                }else{
+                    // echo("No hay datos");
+                    return false;
+                }
+            }catch (Exception $th) {
+                echo($th->getMessage());
+                return 'E82';
+            } 
+        }
+
+        public function getProductos(int $producto){
+            try {
+                $query = $this->dbc->prepare("SELECT * FROM productos WHERE id_categoria=?");
+                $query->bind_param('i',$producto);
                 $query->execute();
                 $resultado = $query->get_result();
                 if($resultado->num_rows > 0){
