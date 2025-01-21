@@ -1,5 +1,11 @@
 <?php
 session_start();
+
+if(isset($_SESSION['id'])){
+    header("location:index.php");
+    exit();
+}
+
 if(isset($_POST['authlogin'])){
     $errors = [];
 
@@ -14,16 +20,14 @@ if(isset($_POST['authlogin'])){
     if (empty($errors)) {
         include_once("libs/libLogin.php");
         $rlogin=logUser($_POST["useremail"],$_POST["userpass"]);
-        var_dump($rlogin);
         if(!$rlogin){
-            echo("ERROR");
-            foreach ($rlogin as $value) {
-                $errors[] = $value;
+                $errors[] = "Correo o Contraseña incorrectos";
+            }else{
+                header("location:index.php");
             }
         }
     }
-    var_dump($errors);
-}
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -49,7 +53,10 @@ if(isset($_POST['authlogin'])){
                     <p>Hola amigo. Ingresa tus datos para Continuar!</p>
                     <?php
                     if(!empty(($errors))){
-                        echo "<span class='error-form'>Error enviando el formulario revisa los campos.</span>";
+                        echo "<span class='error-form'>".$errors[0]."</span>";
+                    }
+                    if(isset($_GET['success'])){
+                        echo "<span class='good-form'>".$_GET['success']."</span>";
                     }
                 ?>    
                 </div>
@@ -62,6 +69,7 @@ if(isset($_POST['authlogin'])){
                     <span></span>
                 </div>
                 <a href="register.php">¿No tienes una Cuenta?</a>
+                <a href="index.php">Regresar al Inicio</a>
                 <button type="submit" name="authlogin">Continuar</button>
             </form>
             <div class="auth-info">

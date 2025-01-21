@@ -16,17 +16,23 @@ function logUser(string $email, string $password){
     if(count($errors) != 0){
         //echo("ERROR");
         //echo(count($errors));
-        return $errors;
+        return false;
     }else{
         $login =$sysdb->iniciarSesion($email,$password);
-        if(!$login){
+        var_dump($login);
+        if($login != false){
+            session_start();
+            $_SESSION['id']=$login['id'];
+            $_SESSION['cdi']=$login['cdi'];
+            $_SESSION['email']=$login['email'];
+            echo("Correcto");
+            var_dump($login);
+            return true;
+        }else{
             echo("ERROR");
             return false;
-            
-        }else{
-            var_dump($login);
         }
     }
-
+   
 }
 ?>

@@ -30,6 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if($registro === true){      
             echo "<script>alert('Formulario enviado correctamente');</script>";
             echo "<p style='color: green;'>Formulario enviado correctamente.</p>";
+            header("location:login.php?success=Te has registrado exitosamente");
             
         }else{
             foreach ($registro as $value) {

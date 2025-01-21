@@ -11,6 +11,7 @@ body{
 }
 
 .carrito_box {
+    display: none;
     width: 800px;       /* Ancho inicial */
     max-width: 100%;    /* Nunca excede el tamaño de la pantalla */
     box-sizing: border-box; /* Considera padding y bordes dentro del ancho */
@@ -62,6 +63,7 @@ button {
     padding: 10px 20px;
     cursor: pointer;
     font-size: 16px;
+    display: none;
 }
 button:hover {
     background-color: #45a049;
@@ -82,4 +84,18 @@ button:hover {
 .product_info span{
     margin-right: 2rem;
 
+}
+
+.carrito_informacion{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 6rem;
+}
+
+.carrito_informacion span{
+    color: white;
+    font-family: 'Bebas Neue';
+    font-size: 40px;
+    margin-top: 3rem;
 }

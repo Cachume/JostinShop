@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 
 
+
 .contenedor-catalago {
     display: grid; 
     grid-template-columns: repeat(4, 1fr); 
@@ -9,11 +10,28 @@
     padding: 20px; 
 }
 
-.titulo-catalogo {
-    font-family: 'Bebas Neue'; 
-    font-size: 2.5rem; 
-    text-align: center; 
+.body_catalogo{
+    background: #18293d;
 }
+
+.catalogo_main{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 5rem;
+}
+
+.titulo-catalogo {
+    font-family: 'Bebas Neue';
+    font-size: 2.6rem;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    font-weight: bolder;
+    margin: 2rem;
+  }
+
 
 .contenedor-catalago a {
     text-decoration: none; 

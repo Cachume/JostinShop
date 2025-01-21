@@ -8,13 +8,12 @@
     <link rel="stylesheet" href="./css/catalago.css">
 </head>
 
-<body>
-    <header>
-     
-    </header>
-
-    <main>
-        <h3 class="titulo-catalogo">Catálogo</h3>
+<body class="body_catalogo">
+    <?php
+        include_once("template/header.php");
+    ?>
+    <main class="catalogo_main">
+        <a href="catalogo.php" class="titulo-catalogo">Catálogo</a>
         <div class="contenedor-catalago">
         <?php
         include_once("controllers/userCatalogo.php");

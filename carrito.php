@@ -9,44 +9,18 @@
     <title>Carrito de Compras</title>
 </head>
 <body>
-    <header>
-        <div class="header-desktop">
-            <div class="header-bar">
-                <span class="header-title">
-                    Maak Store
-                </span>
-                <nav class="header-nav">
-                    <a href="index.html">INICIO</a>
-                    <a href="./Catalago.html">CATALOGO</a>
-                    <a href="index.html">CARRITO</a>
-                    <a href="index.html">NOSOTROS</a>
-                </nav>
-                <div class="header-r">
-                    <a href="">
-                        <img src="src/carrito-de-compras.png" alt="" srcset="">
-                    </a>
-                </div>
-            </div>        
-        </div>
-        <div class="header-mobile">
-            <img src="src/lista(1).png" alt="" srcset="" onclick="menuShow();">
-            <span class="header-title">
-                Maak Store
-            </span>
-            <img src="src/carrito-de-compras.png" alt="" srcset="">
-        </div>
-        <div class="sidebar" id="sidebar">
-            <!-- Contenido del menú lateral -->         
-            <ul>
-                <img src="src/x.png" alt="" onclick="menuShow();">
-                <li><a href="#">Inicio</a></li>
-                <li><a href="./Catalago.html">Catálogo</a></li>
-                <li><a href="#">Contacto</a></li>
-                <!-- Agrega más enlaces según sea necesario -->
-            </ul>
-        </div>
-    </header>
+<?php include_once("template/header.php");
+    if(!isset($_SESSION['id'])){
+        header("location:login.php");
+    }
+
+    ?>
     <main class="carrito_main">
+        <div class="carrito_informacion">
+            <img src="src/nocarrito.png" alt="" srcset="">
+            <span>El Carrito no se encuentra Disponible</span>
+
+        </div>
         <div class="carrito_box" id="carrito">
             <h2 class="carrito_title">Carrito de Compras</h2>
             <div class="product">
