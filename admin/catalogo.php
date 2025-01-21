@@ -1,13 +1,5 @@
 <?php
-if(isset($_POST['addCatalogo'])){
-    $imagen=$_FILES['imagen_catalogo']['name'];
-    $nombre_catalogo=$_POST['nombrecatalogo'];
-    $descripcion_catalogo=$_POST['descripcioncatalogo'];
-
-    echo($nombre_catalogo.$imagen.$descripcion_catalogo);
-}else{
-    echo "<script>alert('todo mal');</script>";
-}
+    include_once("../controllers/adminCatalogo.php");
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -52,7 +44,7 @@ if(isset($_POST['addCatalogo'])){
                 </thead>
                 <tbody>
                     <tr class="tr_fila">
-                        <td>Camisetas</td>
+                        <td><a href="catalogo.php?c=12">Camisetas</a></td>
                         <td><strong>3</strong></td>
                         <td class="td_acciones">
                             <a href="" class="editar"><img src="../src/editar.png" alt=""></a>

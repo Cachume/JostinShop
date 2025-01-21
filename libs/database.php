@@ -88,6 +88,23 @@
             } 
         }
 
+        public function insertCatalogo(string $nombre, string $imagen){
+            try {
+                $query= $this->dbc->prepare("INSERT INTO catalogo (nombre_categoria, imagen_categoria) VALUES (?,?)");
+                $query->bind_param("ss",$nombre,$imagen);
+                $query->execute();
+                if($query->affected_rows > 0){
+                    return true;
+                }else{
+                    return false;
+                }
+            } catch (Exception $th) {
+                echo($th->getMessage());
+                echo "<script>alert('".$th->getMessage()."');</script>";
+                return 'E82';
+            } 
+        }
+
         public function __destruct(){
             $this->dbc->close();
         }
@@ -95,10 +112,10 @@
     }
 
 // $base = new Database();
-// if($base->checkData("email","albertq703@gmail.com",false)){
+// if($base->insertCatalogo("Xbox","hola.png")){
 //     echo("existe");
 // }else{
-//     echo("No existe");
+//    echo("No existe");
 // }
 
 ?>

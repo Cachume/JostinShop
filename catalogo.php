@@ -30,7 +30,7 @@
                     $imagen=$value['imagen_categoria'];
                     echo('<a href="#">');
                     echo('<div class="item">');
-                    echo("<img src='./src/Catalago/$imagen' alt='Camisetas deportivas'>");
+                    echo("<img src='./src/catalogo/$imagen' alt='Camisetas deportivas'>");
                     echo("<span>$nombre</span>");
                     echo('</div>');
                     echo('</a>');
