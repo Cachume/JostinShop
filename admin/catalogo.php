@@ -86,12 +86,12 @@
             <h2>Añadir Catalogo</h2>
             <label for="nombretema">Ingresa el nombre del catalogo:</label>
             <input type="text" name="nombrecatalogo" id="">
-            <label for="descripciontema">Ingresa la descripcion del catalogo:</label>
-            <textarea name="descripcioncatalogo" id="" cols="30" rows="10"></textarea>
+            <!-- <label for="descripciontema">Ingresa la descripcion del catalogo:</label>
+            <textarea name="descripcioncatalogo" id="" cols="30" rows="10"></textarea> -->
             <label for="imagen_catalogo">Ingresa la imagen del catalogo:</label>
             <input type="file" name="imagen_catalogo" id="">
             <div class="form_botones">
-                <button type="submit" name="addCatalogo">Añadir</button>
+                <button type="submit" name="addProducto">Añadir</button>
                 <button class="boton_rojo" id="closev" type="button" ">Cerrar</button>
             </div>
         </form>

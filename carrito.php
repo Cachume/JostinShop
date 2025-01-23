@@ -23,7 +23,7 @@
         </div>
         <div class="carrito_box" id="carrito">
             <h2 class="carrito_title">Carrito de Compras</h2>
-            <div class="product">
+            <div class="productt">
                 <strong>Manzana Roja</strong>
                 <div class="product_info">
                     <span>$1.20</span>
