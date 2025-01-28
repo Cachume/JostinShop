@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras</title>
+    <link rel="stylesheet" href="css/carrito2.css">
+</head>
+<body>
+    <div class="contenedor">
+        
+        <header>
+            <h1>Carrito de Compras</h1>
+        </header>
+        <main>
+            
+            <div id="items-carrito">
+
+                <div class="item-carrito">
+
+                    <img src="src/catalogo/Franelas.png" alt="Producto" class="imagen-item">
+
+                    <div class="detalles-item">
+
+                        <h2 class="nombre-item">Camiseta Clásica</h2>
+                        <p class="precio-item">$10.00</p>
+
+                        <div class="cantidad-item">
+
+                            <button class="boton-cantidad menos">-</button>
+                            <input type="text" value="1" class="entrada-cantidad">
+                            <button class="boton-cantidad mas">+</button>
+
+                        </div>
+
+                        <button class="boton-eliminar">Eliminar</button>
+
+                    </div>
+                </div>
+
+                <div class="item-carrito">
+
+                    <img src="src/catalogo/Franelas.png" alt="Producto" class="imagen-item">
+
+                    <div class="detalles-item">
+
+                        <h2 class="nombre-item">Camiseta Clásica</h2>
+                        <p class="precio-item">$10.00</p>
+
+                        <div class="cantidad-item">
+
+                            <button class="boton-cantidad menos">-</button>
+                            <input type="text" value="1" class="entrada-cantidad">
+                            <button class="boton-cantidad mas">+</button>
+
+                        </div>
+
+                        <button class="boton-eliminar">Eliminar</button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Selección de Método de Pago -->
+            <div class="metodo-pago">
+
+                <h2>Elige tu Método de Pago</h2>
+                <select id="selector-pago">
+
+                    <option value="">Selecciona una opción</option>
+                    <option value="efectivo">Efectivo</option>
+                    <option value="transferencia">Transferencia Bancaria</option>
+                    <option value="pago_movil">Pago Móvil</option>
+                    <option value="binance">Binance</option>
+                    <option value="paypal">PayPal</option>
+
+                </select>
+            </div>
+
+            <!-- Información del Método de Pago Seleccionado -->
+            <div id="info-pago" class="info-pago">
+                <!-- Aquí se mostrará la información dinámica -->
+            </div>
+
+            <!-- Total y Botón de Pago -->
+            <div class="total-pago">
+
+                <p>Total: <span id="precio-total" class="precio-total">$20.00</span></p>
+                <button class="boton-pagar">Proceder al Pago</button>
+
+            </div>
+            
+        </main>
+    </div>
+
+
+    <script src="js/carrito.js"></script>
+
+</body>
+</html>
+
+
