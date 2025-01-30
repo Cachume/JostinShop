@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -22,7 +23,7 @@
     </div>
     <div class="contenido-principal">
         <header>
-            <h2>Panel de Administrador</h2>
+            <h2>Pr</h2>
             <div class="perfil-usuario">
                 <img src="https://cdn-icons-png.flaticon.com/512/6073/6073873.png" width="100" alt="Foto de Usuario">
                 <div>
@@ -33,24 +34,7 @@
         </header>
 
         <main>
-            <div class="tarjetas">
-                <div class="tarjeta">
-                    <div>
-                        <h3>Usuarios Registrados</h3>
-                        <p>150</p>
-                    </div>
-                    <i class="fas fa-users fa-2x"></i>
-                </div>
-                <div class="tarjeta">
-                    <div>
-                        <h3>Ventas Mensuales</h3>
-                        <p>$12,000</p>
-                    </div>
-                    <i class="fas fa-dollar-sign fa-2x"></i>
-                </div>
-            </div>
         </main>
     </div>
 </body>
 </html>
-
