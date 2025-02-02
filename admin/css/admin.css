@@ -12,6 +12,9 @@ body {
     padding: 20px;
     height: 100vh;
     position: fixed;
+    left: 0;
+    transition: left 0.3s ease;
+    z-index: 1000;
 }
 
 .barra-lateral h2 {
@@ -62,7 +65,6 @@ header {
     justify-content: space-between;
     align-items: center;
     padding-bottom: 10px;
-    /* border-bottom: 2px solid #bdc3c7; */
 }
 
 header h2 {
@@ -114,28 +116,28 @@ header h2 {
 }
 
 /* Propiedades Catalogo */
-.editar img{
+.editar img {
     box-sizing: border-box;
     background: #09add6;
     width: 29px;
     height: 29px;
-    padding:4px;
+    padding: 4px;
 }
 
-.eliminar img{
+.eliminar img {
     box-sizing: border-box;
     background: red;
-    padding:4px;
+    padding: 4px;
     width: 29px;
     height: 29px;
 }
 
-.tabla_catalogo{
+.tabla_catalogo {
     width: 100%;
     border-collapse: collapse;
 }
 
-.tabla_catalogo thead tr td{
+.tabla_catalogo thead tr td {
     text-align: left;
     padding: 10px;
     background: #3d7ba8;
@@ -143,21 +145,23 @@ header h2 {
     font-weight: bolder;
 }
 
-.tr_fila{
+.tr_fila {
     background: white;
     padding: 4px;
 }
-.tr_fila:nth-child(odd){
+
+.tr_fila:nth-child(odd) {
     background-color: #efefef;
 }
-.nuevo_catalogo{
+
+.nuevo_catalogo {
     box-sizing: border-box;
     padding: 10px;
-    text-align: center; /* Centrar horizontalmente */
-    vertical-align: middle; /* Centrar verticalmente */
+    text-align: center;
+    vertical-align: middle;
 }
 
-.nuevo_catalogo button{
+.nuevo_catalogo button {
     background: #07f060;
     border: none;
     padding: 10px 20px;
@@ -167,32 +171,30 @@ header h2 {
 }
 
 /* Ventana Modal */
-
-.ventanatema{
-    position:absolute;
+.ventanatema {
+    position: absolute;
     top: 0;
-    z-index: 1000px;
+    z-index: 1000;
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
-.fondotema{
+.fondotema {
     background: black;
     width: 100%;
     height: 100%;
     opacity: 0.5;
 }
 
-.ventanatema form{
+.ventanatema form {
     display: flex;
     justify-content: center;
-    align-items:center;
+    align-items: center;
     flex-direction: column;
-    position:absolute;
+    position: absolute;
     padding: 10px;
     opacity: 1;
     background: white;
@@ -202,56 +204,54 @@ header h2 {
     height: auto;
 }
 
-.ventanatema form h2{
+.ventanatema form h2 {
     color: #083358;
-    font-weight:  bolder;
+    font-weight: bolder;
     margin-bottom: 1rem;
 }
 
-
-.ventanatema label{
+.ventanatema label {
     font-weight: bolder;
     margin-bottom: 5px;
 }
 
-.ventanatema input[type="text"]{
+.ventanatema input[type="text"] {
     width: 300px;
     height: 26px;
     padding: 3px;
     margin-bottom: 1rem;
     text-align: center;
     border-radius: 5px;
-    border:none;
+    border: none;
     background-color: #e4e4e4;
     font-weight: bolder;
 }
 
-.ventanatema input[type="number"]{
+.ventanatema input[type="number"] {
     width: 140px;
     height: 26px;
     padding: 3px;
     margin-bottom: 1rem;
     text-align: center;
     border-radius: 5px;
-    border:none;
+    border: none;
     background-color: #e4e4e4;
     font-weight: bolder;
 }
 
-.ventanatema input[type="file"]{
+.ventanatema input[type="file"] {
     width: auto;
     height: 26px;
     padding: 4px;
     margin-bottom: 1rem;
     text-align: center;
     border-radius: 5px;
-    border:none;
+    border: none;
     background-color: #e4e4e4;
     font-weight: bolder;
 }
 
-
-.ventanatema textarea{
+.ventanatema textarea {
     resize: none;
     padding: 1px;
     height: 50px;
@@ -263,7 +263,7 @@ header h2 {
     border: none;
 }
 
-.ventanatema form button:nth-child(1){
+.ventanatema form button:nth-child(1) {
     background-color: #4caf50;
     color: white;
     border: none;
@@ -272,7 +272,7 @@ header h2 {
     cursor: pointer;
 }
 
-.ventanatema form button:nth-child(2){
+.ventanatema form button:nth-child(2) {
     background-color: red;
     color: white;
     border: none;
@@ -282,8 +282,7 @@ header h2 {
     margin-left: 15px;
 }
 
-
-.error{
+.error {
     color: red;
     text-align: center;
     padding: 10px;
@@ -291,10 +290,99 @@ header h2 {
     font-size: 18px;
 }
 
-.success{
+.success {
     color: green;
     text-align: center;
     padding: 10px;
     font-weight: bolder;
     font-size: 18px;
+}
+
+/* Estilos para el botón de la barra lateral */
+#botonMenu {
+    background-color: rgb(192, 108, 49); /* Color que combina con la barra lateral */
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#botonMenu i {
+    color: #ecf0f1; /* Color del ícono */
+    font-size: 20px; /* Tamaño del ícono */
+    transition: color 0.3s ease;
+}
+
+#botonMenu:hover {
+    background-color: #6d3c1b; /* Color más oscuro al hacer hover */
+    transform: scale(1.1); /* Efecto de escala al hacer hover */
+}
+
+#botonMenu:hover i {
+    color: #fff; /* Cambia el color del ícono al hacer hover */
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+    .barra-lateral {
+        left: -250px;
+        width: 200px;
+    }
+
+    .barra-lateral ul li a {
+        font-size: 16px;
+    }
+
+    .contenido-principal {
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    header h2 {
+        font-size: 20px;
+    }
+
+    .perfil-usuario h4 {
+        font-size: 16px;
+    }
+
+    .perfil-usuario small {
+        font-size: 12px;
+    }
+
+    .tarjeta h3 {
+        font-size: 18px;
+    }
+
+    .tarjeta p {
+        font-size: 20px;
+    }
+
+    .tarjeta i {
+        font-size: 24px;
+    }
+
+    .fondo-oscuro {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+    }
+
+    .barra-lateral.abierta + .fondo-oscuro {
+        display: block;
+    }
+}
+
+@media (min-width: 769px) {
+    #botonMenu {
+        display: none;
+    }
 }

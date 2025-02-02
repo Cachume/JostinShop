@@ -1,40 +1,109 @@
+        <?php 
+            include "./template/header.php"
+        ?>
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel de Administrador</title>
-    <link rel="stylesheet" href="css/admin.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-</head>
-<body>
-    <div class="barra-lateral">
-        <h2>Maak Store</h2>
-        <ul>
-            <li><a href="#"><i class="fas fa-tachometer-alt"></i> Inicio</a></li>
-            <li><a href="#"><i class="fas fa-users"></i> Usuarios</a></li>
-            <li><a href="catalogo.php"><i class="fas fa-box-open"></i> Catalogo</a></li>
-            <li><a href="#"><i class="fas fa-boxes"></i>Productos</a></li>
-            <li><a href="compras.php"><i class="fas fa-shopping-cart"></i> Compras</a></li>
-            <li><a href="#"><i class="fas fa-cog"></i> Ajustes</a></li>
-            <li><a href="#"><i class="fas fa-sign-out-alt"></i> Salir</a></li>
-        </ul>
-    </div>
-    <div class="contenido-principal">
-        <header>
-            <h2>Pr</h2>
-            <div class="perfil-usuario">
-                <img src="https://cdn-icons-png.flaticon.com/512/6073/6073873.png" width="100" alt="Foto de Usuario">
-                <div>
-                    <h4>Andy Palma</h4>
-                    <small>Admin</small>
-                </div>
-            </div>
-        </header>
 
         <main>
+            <!-- Tabla de Productos -->
+            <div class="tabla-productos">
+
+                <div class="header-tabla">
+                    <h2>Lista de Productos</h2>
+                    <button id="agregarProducto" class="btn-agregar">Agregar Producto</button>
+                </div>
+
+                <table class="tabla_catalogo">
+
+                    <thead>
+                        <tr>
+                            <td>Serial</td>
+                            <td>Imagen</td>
+                            <td>Nombre</td>
+                            <td>Precio</td>
+                            <td>Stock</td>
+                            <td>Acciones</td>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <!-- Datos de ejemplo -->
+                        <tr class="tr_fila">
+                            <td>001</td>
+                            <td><img src="../src/Gorras.png" alt="Producto 1" class="imagen-producto"></td>
+                            <td>Producto 1</td>
+                            <td>$10.00</td>
+                            <td>50</td>
+                            <td>
+                                <button class="editar" onclick="abrirModalEditar(1)"><i class="fas fa-edit"></i></button>
+                                <button class="eliminar" onclick="abrirModalEliminar(1)"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+
+                        <tr class="tr_fila">
+                            <td>002</td>
+                            <td><img src="../src/Franelas.png" alt="Producto 2" class="imagen-producto"></td>
+                            <td>Producto 2</td>
+                            <td>$20.00</td>
+                            <td>30</td>
+                            <td>
+                                <button class="editar" onclick="abrirModalEditar(2)"><i class="fas fa-edit"></i></button>
+                                <button class="eliminar" onclick="abrirModalEliminar(2)"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+            </div>
+
         </main>
+
     </div>
-</body>
-</html>
+
+    <!-- Modal para Agregar/Editar Producto -->
+    <div class="ventanatema" id="modalProducto">
+
+        <div class="fondotema"></div>
+        <form id="formProducto">
+
+            <h2 id="tituloModal">Agregar Producto</h2>
+
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="precio">Precio:</label>
+            <input type="number" id="precio" name="precio" step="0.01" required>
+
+            <label for="stock">Stock:</label>
+            <input type="number" id="stock" name="stock" required>
+
+            <label for="imagen">Imagen:</label>
+            <input type="file" id="imagen" name="imagen" accept="image/*">
+
+            <div class="botones-modal">
+                <button type="submit" id="btnGuardar">Guardar</button>
+                <button type="button" id="btnCancelar">Cancelar</button>
+            </div>
+
+        </form>
+    </div>
+
+    <!-- Modal para Eliminar Producto -->
+    <div class="ventanatema" id="modalEliminar">
+
+        <div class="fondotema"></div>
+
+        <form id="formEliminar">
+
+            <h2>¿Eliminar Producto?</h2>
+            <p id="mensajeEliminar">¿Estás seguro de que deseas eliminar este producto?</p>
+
+            <div class="botones-modal">
+                <button type="submit" id="btnEliminar">Eliminar</button>
+                <button type="button" id="btnCancelarEliminar">Cancelar</button>
+            </div>
+            
+        </form>
+    </div>
+
+    <?php  include "template/footer.php" ?>
