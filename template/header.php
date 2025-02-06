@@ -6,6 +6,7 @@
     <title>Tienda</title>
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/producto.css">
 </head>
 <body>
     <header>

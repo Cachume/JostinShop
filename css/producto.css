@@ -6,6 +6,11 @@ body {
     background-color: #f4f4f4;
 }
 
+.main_producto{
+    background: #18293d;
+    padding-top:8rem;
+}
+
 .contenedor {
     width: 80%;
     margin: auto;
@@ -39,8 +44,8 @@ body {
 }
 
 .imagen-principal {
-    width: 400px;
-    height: 500px;
+    max-width: 650px;
+    max-height: 500px;
     border: 1px solid #ddd;
     padding: 5px;
     background-color: #fff;

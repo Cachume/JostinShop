@@ -16,7 +16,8 @@ if (isset($_GET['p'])) {
             $id=$value['id_producto'];
             $nombre=$value['nombre_producto'];
             $imagen=$value['imagen_producto'];
-            echo('<a href="#">');
+            $catalogo = $value['id_categoria'];
+            echo("<a href='producto.php?c=$catalogo&p=$id'>");
             echo('<div class="item">');
             echo("<img src='./src/producto/$imagen' alt='Camisetas deportivas'>");
             echo("<span>$nombre</span>");
