@@ -14,7 +14,7 @@
         <h2>Maak Store</h2>
         <ul>
             <li><a href="index.php"><i class="fas fa-tachometer-alt"></i> Inicio</a></li>
-            <li><a href="#"><i class="fas fa-users"></i> Usuarios</a></li>
+            <li><a href="usuarios.php"><i class="fas fa-users"></i> Usuarios</a></li>
             <li><a href="catalago2.php"><i class="fas fa-box-open"></i> Catalogo</a></li>
             <li><a href="productos2.php"><i class="fas fa-boxes"></i>Productos</a></li>
             <li><a href="compras.php"><i class="fas fa-shopping-cart"></i> Compras</a></li>
