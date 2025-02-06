@@ -248,3 +248,59 @@ select:focus {
 .boton-pagar {
     transition: all 0.3s ease;
 }
+
+.datos-comprador {
+    margin-bottom: 30px;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.datos-comprador h2 {
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.campo-formulario {
+    margin-bottom: 15px;
+}
+
+.campo-formulario label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    font-weight: bold;
+}
+
+.campo-formulario input,
+.campo-formulario textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+.campo-formulario textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+.campo-formulario input:focus,
+.campo-formulario textarea:focus {
+    outline: 2px solid #007bff;
+    outline-offset: 2px;
+    border-color: #007bff;
+}
+
+@media screen and (max-width: 768px) {
+    .datos-comprador {
+        padding: 15px;
+    }
+    
+    .campo-formulario input,
+    .campo-formulario textarea {
+        padding: 8px;
+    }
+}
