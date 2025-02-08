@@ -1,127 +1,141 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/carrito.css">
-    <link rel="stylesheet" href="./css/header.css">
-    <link rel="stylesheet" href="./css/index.css">
     <title>Carrito de Compras</title>
+    <link rel="stylesheet" href="css/carrito2.css">
 </head>
+
 <body>
-<?php include_once("template/header.php");
-    if(!isset($_SESSION['id'])){
-        header("location:login.php");
-    }
+    <div class="contenedor">
 
-    ?>
-    <main class="carrito_main">
-        <div class="carrito_informacion">
-            <img src="src/nocarrito.png" alt="" srcset="">
-            <span>El Carrito no se encuentra Disponible</span>
+        <header>
+            <h1>Carrito de Compras</h1>
+        </header>
+        <main>
 
-        </div>
-        <div class="carrito_box" id="carrito">
-            <h2 class="carrito_title">Carrito de Compras</h2>
-            <div class="productt">
-                <strong>Manzana Roja</strong>
-                <div class="product_info">
-                    <span>$1.20</span>
-                    <a href="" class="item_delete"><img src="./src/eliminar.png" alt="" srcset=""></a>
+            <div id="items-carrito">
+
+                <div class="item-carrito">
+
+                    <img src="src/catalogo/Franelas.png" alt="Producto" class="imagen-item">
+
+                    <div class="detalles-item">
+
+                        <h2 class="nombre-item">Camiseta Clásica</h2>
+                        <p class="precio-item">$10.00</p>
+
+                        <div class="cantidad-item">
+
+                            <button class="boton-cantidad menos">-</button>
+                            <input type="text" value="1" class="entrada-cantidad">
+                            <button class="boton-cantidad mas">+</button>
+
+                        </div>
+
+                        <button class="boton-eliminar">Eliminar</button>
+
+                    </div>
                 </div>
-              </div>
-              
-              <div class="product">
-                <strong>Leche Entera 1L</strong>
-                <div class="product_info">
-                    <span>$1.20</span>
-                    <a href="" class="item_delete"><img src="./src/eliminar.png" alt="" srcset=""></a>
+
+                <div class="item-carrito">
+
+                    <img src="src/catalogo/Franelas.png" alt="Producto" class="imagen-item">
+
+                    <div class="detalles-item">
+
+                        <h2 class="nombre-item">Camiseta Clásica</h2>
+                        <p class="precio-item">$10.00</p>
+
+                        <div class="cantidad-item">
+
+                            <button class="boton-cantidad menos">-</button>
+                            <input type="text" value="1" class="entrada-cantidad">
+                            <button class="boton-cantidad mas">+</button>
+
+                        </div>
+
+                        <button class="boton-eliminar">Eliminar</button>
+
+                    </div>
+
                 </div>
-              </div>
-              
-              <div class="product">
-                <strong>Pan de Molde</strong>
-                <div class="product_info">
-                    <span>$1.20</span>
-                    <a href="" class="item_delete"><img src="./src/eliminar.png" alt="" srcset=""></a>
-                </div>
-              </div>
-              
-              <div class="product">
-                <strong>Arroz Blanco 1Kg</strong>
-                <div class="product_info">
-                    <span>$1.20</span>
-                    <a href="" class="item_delete"><img src="./src/eliminar.png" alt="" srcset=""></a>
-                </div>
-              </div>
-              
-              <div class="product">
-                <strong>Azúcar 500g</strong>
-                <div class="product_info">
-                    <span>$1.20</span>
-                    <a href="" class="item_delete"><img src="./src/eliminar.png" alt="" srcset=""></a>
-                </div>
-              </div>
-              
-              <div class="product">
-                <strong>Huevos (Docena)</strong>
-                <div class="product_info">
-                    <span>$1.20</span>
-                    <a href="" class="item_delete"><img src="./src/eliminar.png" alt="" srcset=""></a>
-                </div>
-              </div>
-              
-              <div class="product">
-                <strong>Queso Fresco 500g</strong>
-                <div class="product_info">
-                    <span>$1.20</span>
-                    <a href="" class="item_delete"><img src="./src/eliminar.png" alt="" srcset=""></a>
-                </div>
-              </div>
-              
-              <div class="product">
-                <strong>Pollo Entero</strong>
-                <div class="product_info">
-                    <span>$1.20</span>
-                    <a href="" class="item_delete"><img src="./src/eliminar.png" alt="" srcset=""></a>
-                </div>
-              </div>
-              <div class="product">
-                <strong>Pollo Entero</strong>
-                <div class="product_info">
-                    <span>$1.20</span>
-                    <a href="" class="item_delete"><img src="./src/eliminar.png" alt="" srcset=""></a>
-                </div>
-              </div>
-              <div class="product">
-                <strong>Pollo Entero</strong>
-                <div class="product_info">
-                    <span>$1.20</span>
-                    <a href="" class="item_delete"><img src="./src/eliminar.png" alt="" srcset=""></a>
-                </div>
-              </div>
-              <div class="product">
-                <strong>Pollo Entero</strong>
-                <div class="product_info">
-                    <span>$1.20</span>
-                    <a href="" class="item_delete"><img src="./src/eliminar.png" alt="" srcset=""></a>
-                </div>
-              </div>
-              <div class="product">
-                <strong>Pollo Entero</strong>
-                <div class="product_info">
-                    <span>$1.20</span>
-                    <a href="" class="item_delete"><img src="./src/eliminar.png" alt="" srcset=""></a>
-                </div>
-              </div>
-            <div class="total">
-                Total: $25.00
+
             </div>
-        </div>
-            <!-- Botón de completar compra -->
-            <div class="section" id="boton-compra">
-                <button type="submit">Completar Compra</button>
+
+            <div class="datos-comprador">
+                <h2>Datos del Comprador</h2>
+                <form id="form-comprador">
+                    <div class="campo-formulario">
+                        <label for="nombre">Nombres:</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+                    <div class="campo-formulario">
+                        <label for="apellido">Apellidos:</label>
+                        <input type="text" id="apellido" name="apellido" required>
+                    </div>
+                    <div class="campo-formulario">
+                        <label for="email">Correo Electrónico:</label>
+                        <input type="email" id="email" value="albetrq703@gmail.com" disabled>
+                    </div>
+                    <div class="campo-formulario">
+                        <label for="email">Cedula de Identidad:</label>
+                        <input type="text" id="email" value="   V-00.000.00" disabled>
+                    </div>
+                    <div class="campo-formulario">
+                        <label for="telefono">Teléfono:</label>
+                        <input type="tel" id="telefono" name="telefono" required>
+                    </div>
+                    <!-- <div class="campo-formulario">
+                        <label for="direccion">Dirección de Envío:</label>
+                        <textarea id="direccion" name="direccion" required></textarea>
+                    </div>
+                    <div class="campo-formulario">
+                        <label for="ciudad">Ciudad:</label>
+                        <input type="text" id="ciudad" name="ciudad" required>
+                    </div>
+                    <div class="campo-formulario">
+                        <label for="codigo-postal">Código Postal:</label>
+                        <input type="text" id="codigo-postal" name="codigo-postal" required>
+                    </div> -->
+                </form>
             </div>
-    </main>
+
+            <!-- Selección de Método de Pago -->
+            <div class="metodo-pago">
+
+                <h2>Elige tu Método de Pago</h2>
+                <select id="selector-pago">
+
+                    <option value="">Selecciona una opción</option>
+                    <option value="efectivo">Efectivo</option>
+                    <option value="transferencia">Transferencia Bancaria</option>
+                    <option value="pago_movil">Pago Móvil</option>
+                    <option value="binance">Binance</option>
+                    <option value="paypal">PayPal</option>
+
+                </select>
+            </div>
+
+            <!-- Información del Método de Pago Seleccionado -->
+            <div id="info-pago" class="info-pago">
+                <!-- Aquí se mostrará la información dinámica -->
+            </div>
+
+            <!-- Total y Botón de Pago -->
+            <div class="total-pago">
+                <p>Total: <span id="precio-total" class="precio-total">$20.00</span></p>
+                <button class="boton-pagar">Proceder al Pago</button>
+            </div>
+
+        </main>
+    </div>
+
+
+    <script src="js/carrito.js"></script>
+
 </body>
+
 </html>

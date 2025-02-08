@@ -16,7 +16,7 @@
         <ul>
             <li><a href="index.php"><i class="fas fa-tachometer-alt"></i> Inicio</a></li>
             <li><a href="usuarios.php"><i class="fas fa-users"></i> Usuarios</a></li>
-            <li><a href="catalogo2.php"><i class="fas fa-box-open"></i> Catálogo</a></li>
+            <li><a href="catalogo.php"><i class="fas fa-box-open"></i> Catálogo</a></li>
             <li><a href="compras.php"><i class="fas fa-shopping-cart"></i> Compras</a></li>
             <li><a href="ajustes.php"><i class="fas fa-cog"></i> Ajustes</a></li>
             <li><a href="#"><i class="fas fa-sign-out-alt"></i> Salir</a></li>

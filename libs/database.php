@@ -167,6 +167,27 @@
                 return false; // Operación fallida
             }
         }
+
+        public function insertProducto(string $nombre, string $imagen, string $descripcion,float $precio, int $stock, int $categoria){
+            try {
+                $query= $this->dbc->prepare("INSERT INTO productos (nombre_producto, descripcion_producto, imagen_producto, precio, stock, id_categoria) 
+                VALUES (?,?,?,?,?,?)");
+                $preciof = floatval($precio);
+                $query->bind_param("sssdii",$nombre,$descripcion,$imagen,$preciof,$stock,$categoria);
+                $query->execute();
+                if($query->affected_rows > 0){
+                    return true;
+                }else{
+                    return false;
+                }
+            } catch (Exception $th) {
+                echo($th->getMessage());
+                echo "<script>alert('".$th->getMessage()."');</script>";
+                return 'E82';
+            } 
+        }
+
+
         public function __destruct(){
             $this->dbc->close();
         }

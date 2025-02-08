@@ -44,36 +44,45 @@
             <table class="tabla_catalogo">
                 <thead>
                     <tr>
-                        <td>Nombre del Catalogo</td>
+                        <td>Nombre del Producto</td>
                         <td>N° de Productos</td>
                         <td>Acciones</td>
                     </tr>
                 </thead>
                 <tbody>
                 <?php
-                include_once("../libs/database.php");
-                $sysdb= new Database();
-                $catalogo= $sysdb->getCatalogo();
-                if($catalogo){
-                    //var_dump($catalogo);
-                    foreach ($catalogo as $value) {
-                        $id=$value['id_categoria'];
-                        $nombre=$value['nombre_categoria'];
-                        $total=$value['total_productos'];
-                        echo('<tr class="tr_fila">');
-                        echo('<td><a href="productos.php?c='.$id.'">'.$nombre.'</a></td>');
-                        echo("<td><strong>".$total."</strong></td>");
-                        echo("<td class='td_acciones'>");
-                        echo('<a href="" class="editar"><img src="../src/editar.png" alt=""></a>');
-                        echo(' <a href="" class="eliminar"><img src="../src/eliminar.png" alt=""></a>');
-                        echo('</td>');
-                        echo('</tr>');
+                if (isset($_GET['c'])) {
+                    $valor = $_GET['c'] ?? '';
+                    if (ctype_digit($valor)) { // Solo números positivos
+                        $producto = (int)$valor;
+                        include_once("../libs/database.php");
+                        $sysdb= new Database();
+                        $catalogo= $sysdb->getProductos($producto);
+                        //var_dump($catalogo);
+                        if($catalogo){
+                            foreach ($catalogo as $value) {
+                                $id=$value['id_producto'];
+                                $nombre=$value['nombre_producto'];
+                                $total=$value['stock'];
+                                echo('<tr class="tr_fila">');
+                                echo('<td><a href="productos.php?c='.$id.'">'.$nombre.'</a></td>');
+                                echo("<td><strong>".$total."</strong></td>");
+                                echo("<td class='td_acciones'>");
+                                echo('<a href="" class="editar"><img src="../src/editar.png" alt=""></a>');
+                                echo(' <a href="" class="eliminar"><img src="../src/eliminar.png" alt=""></a>');
+                                echo('</td>');
+                                echo('</tr>');
+                            }
+                        }
+                        // exit();
                     }
+                }else{
+                    header("location:catalogo.php");
                 }
                  ?>    
                     <tr>
                         <td class="nuevo_catalogo" colspan="3">
-                            <button id="btncatalogo">Agregar Nuevo Catalogo</button>
+                            <button id="btncatalogo">Agregar Nuevo Producto</button>
                         </td>
                     </tr>
                 </tbody>
@@ -83,15 +92,19 @@
     <div class="ventanatema" id="ventanatema">
         <div class="fondotema" id="fondotema"></div>
         <form action="catalogo.php" method="post" enctype="multipart/form-data">
-            <h2>Añadir Catalogo</h2>
-            <label for="nombretema">Ingresa el nombre del catalogo:</label>
-            <input type="text" name="nombrecatalogo" id="">
-            <!-- <label for="descripciontema">Ingresa la descripcion del catalogo:</label>
-            <textarea name="descripcioncatalogo" id="" cols="30" rows="10"></textarea> -->
-            <label for="imagen_catalogo">Ingresa la imagen del catalogo:</label>
+            <h2>Añadir Producto a Pantalones</h2>
+            <label for="nombreproducto">Ingresa el nombre del producto:</label>
+            <input type="text" name="nombreproducto" id="">
+            <label for="descripcionproducto">Ingresa la descripcion del producto:</label>
+            <textarea name="descripcionproducto" id="" cols="30" rows="10"></textarea>
+            <label for="precioproducto">Ingresa el precio del producto:</label>
+            <input type="number" name="precioproducto" id="">
+            <label for="cantidadproducto">Ingresa la cantidad de producto:</label>
+            <input type="number" name="cantidadproducto" id="">
+            <label for="imagen_catalogo">Ingresa la imagen del producto:</label>
             <input type="file" name="imagen_catalogo" id="">
             <div class="form_botones">
-                <button type="submit" name="addProducto">Añadir</button>
+                <button type="submit" name="addCatalogo">Añadir</button>
                 <button class="boton_rojo" id="closev" type="button" ">Cerrar</button>
             </div>
         </form>
@@ -99,4 +112,3 @@
     <script src="admin.js"></script>
 </body>
 </html>
-

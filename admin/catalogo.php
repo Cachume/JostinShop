@@ -1,102 +1,109 @@
-<?php
-    include_once("../controllers/adminCatalogo.php");
-?>
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel de Administrador</title>
-    <link rel="stylesheet" href="css/admin.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-</head>
-<body>
-    <div class="barra-lateral">
-        <h2>Maak Store</h2>
-        <ul>
-            <li><a href="#"><i class="fas fa-tachometer-alt"></i> Inicio</a></li>
-            <li><a href="#"><i class="fas fa-users"></i> Usuarios</a></li>
-            <li><a href="#"><i class="fas fa-box-open"></i> Catalogo</a></li>
-            <li><a href="#"><i class="fas fa-shopping-cart"></i> Compras</a></li>
-            <li><a href="#"><i class="fas fa-cog"></i> Ajustes</a></li>
-            <li><a href="#"><i class="fas fa-sign-out-alt"></i> Salir</a></li>
-        </ul>
-    </div>
-    <div class="contenido-principal">
-        <header>
-            <h2>Gestión de Catalogos</h2>
-            <div class="perfil-usuario">
-                <img src="https://cdn-icons-png.flaticon.com/512/6073/6073873.png" width="100" alt="Foto de Usuario">
-                <div>
-                    <h4>Andy Palma</h4>
-                    <small>Admin</small>
-                </div>
-            </div>
-        </header>
-        <?php
-            if (isset($_GET['s']) || isset($_GET['e'])) {
-                $class = isset($_GET['s']) ? "success" : "error";
-                $message = isset($_GET['s']) ? htmlspecialchars($_GET['s']) : htmlspecialchars($_GET['e']);
-                echo "<span class='$class'>$message</span>";
-            }
+        <?php 
+            include_once("./controllers/adminCatalogo.php");
+            include "./template/header.php";
         ?>
-        <main class="admin_catalogo_main">
-            <table class="tabla_catalogo">
-                <thead>
-                    <tr>
-                        <td>Nombre del Catalogo</td>
-                        <td>N° de Productos</td>
-                        <td>Acciones</td>
-                    </tr>
-                </thead>
-                <tbody>
-                <?php
-                include_once("../libs/database.php");
-                $sysdb= new Database();
-                $catalogo= $sysdb->getCatalogo();
-                if($catalogo){
-                    //var_dump($catalogo);
-                    foreach ($catalogo as $value) {
-                        $id=$value['id_categoria'];
-                        $nombre=$value['nombre_categoria'];
-                        $total=$value['total_productos'];
-                        echo('<tr class="tr_fila">');
-                        echo('<td><a href="productos.php?c='.$id.'">'.$nombre.'</a></td>');
-                        echo("<td><strong>".$total."</strong></td>");
-                        echo("<td class='td_acciones'>");
-                        echo('<a href="" class="editar"><img src="../src/editar.png" alt=""></a>');
-                        echo(' <a href="" class="eliminar"><img src="../src/eliminar.png" alt=""></a>');
-                        echo('</td>');
-                        echo('</tr>');
-                    }
-                }
-                 ?>    
-                    <tr>
-                        <td class="nuevo_catalogo" colspan="3">
-                            <button id="btncatalogo">Agregar Nuevo Catalogo</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+
+        <main>
+            
+            <div class="tabla-catalogos">
+
+                <div class="header-tabla">
+                    <h2>Gestión de Catálogos</h2>
+                    <button id="agregarCatalogo" class="btn-agregar">Agregar Catálogo</button>
+                </div>
+
+                <table class="tabla_catalogo">
+
+                    <thead>
+                        <tr>
+                            <td>Nombre del Catálogo</td>
+                            <td>Imagen</td>
+                            <td>Número de Productos</td>
+                            <td>Acciones</td>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <?php
+                        include_once("../libs/database.php");
+                        $sysdb= new Database();
+                        $catalogo= $sysdb->getCatalogo();
+                        if($catalogo){
+                            //var_dump($catalogo);
+                            foreach ($catalogo as $value) {
+                                $id=$value['id_categoria'];
+                                $nombre=$value['nombre_categoria'];
+                                $total=$value['total_productos'];
+                                $imagen=$value['imagen_categoria'];
+                                echo('<tr class="tr_fila">');
+                                echo('<td><a href="productos.php?c='.$id.'">'.$nombre.'</a></td>');
+                                echo("<td><img src='../src/catalogo/$imagen' alt='Producto 1' class='imagen-producto'></td>");
+                                echo("<td><strong>".$total."</strong></td>");
+                                echo("<td>");
+                                echo("<button class='editar' onclick='abrirModalEditarCatalogo(2)'><i class='fas fa-edit'></i></button>");
+                                echo('<button class="eliminar" onclick="abrirModalEliminarCatalogo(2)"><i class="fas fa-trash"></i></button>');
+                                echo('</td>');
+                                echo('</tr>');
+                            }
+                        }
+                    ?>
+                        <!-- <tr class="tr_fila">
+                            <td><a href="productos2.php">Gorras</a></td>
+                            <td><img src="../src/Gorras.png" alt="Producto 2" class="imagen-producto"></td>
+                            <td>67</td>
+                            <td>
+                                <button class='editar' onclick='abrirModalEditarCatalogo(2)'><i class='fas fa-edit'></i></button>
+                                <button class="eliminar" onclick="abrirModalEliminarCatalogo(2)"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr> -->
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
         </main>
     </div>
-    <div class="ventanatema" id="ventanatema">
-        <div class="fondotema" id="fondotema"></div>
-        <form action="catalogo.php" method="post" enctype="multipart/form-data">
-            <h2>Añadir Catalogo</h2>
-            <label for="nombretema">Ingresa el nombre del catalogo:</label>
-            <input type="text" name="nombrecatalogo" id="">
-            <!-- <label for="descripciontema">Ingresa la descripcion del catalogo:</label>
-            <textarea name="descripcioncatalogo" id="" cols="30" rows="10"></textarea> -->
-            <label for="imagen_catalogo">Ingresa la imagen del catalogo:</label>
-            <input type="file" name="imagen_catalogo" id="">
-            <div class="form_botones">
-                <button type="submit" name="addProducto">Añadir</button>
-                <button class="boton_rojo" id="closev" type="button" ">Cerrar</button>
+
+    
+    <div class="ventanatema" id="modalCatalogo">
+
+        <div class="fondotema"></div>
+
+        <form id="formCatalogo" action="catalogo.php" method="post" enctype="multipart/form-data">
+
+            <h2 id="tituloModalCatalogo">Agregar Catálogo</h2>
+            <label for="nombreCatalogo">Ingrese el nombre del Catálogo:</label>
+            <input type="text" id="nombreCatalogo" name="nombrecatalogo" required>
+
+            <label for="imagenCatalogo">Ingrese la imagen del Catálogo:</label>
+            <input type="file" id="imagenCatalogo" name="imagen_catalogo" required>
+
+            <div class="botones-modal">
+                <button type="submit" id="btnGuardarCatalogo"  name="addCatalogo">Añadir</button>
+                <button type="button" id="btnCancelarCatalogo">Cerrar</button>
             </div>
+
         </form>
     </div>
-    <script src="admin.js"></script>
-</body>
-</html>
 
+    
+    <div class="ventanatema" id="modalEliminarCatalogo">
+
+        <div class="fondotema"></div>
+
+        <form id="formEliminarCatalogo">
+
+            <h2>¿Eliminar Catálogo?</h2>
+            <p id="mensajeEliminarCatalogo">¿Estás seguro de que deseas eliminar este catálogo?</p>
+
+            <div class="botones-modal">
+                <button type="submit" id="btnEliminarCatalogo">Eliminar</button>
+                <button type="button" id="btnCancelarEliminarCatalogo">Cancelar</button>
+            </div>
+
+        </form>
+    </div>
+
+    <?php  include "template/footer.php" ?>
