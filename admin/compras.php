@@ -26,7 +26,7 @@
             </thead>
 
             <tbody>
-                <!-- Datos de ejemplo -->
+                
                 <tr class="tr_fila">
                     <td>1</td>
                     <td>Camiseta Clásica</td>

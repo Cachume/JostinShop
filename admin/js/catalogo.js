@@ -1,7 +1,6 @@
 const modalCatalogo = document.getElementById('modalCatalogo');
 const modalEliminarCatalogo = document.getElementById('modalEliminarCatalogo');
 const formCatalogo = document.getElementById('formCatalogo');
-const formEliminarCatalogo = document.getElementById('formEliminarCatalogo');
 const btnAgregarCatalogo = document.getElementById('agregarCatalogo');
 const btnCancelarCatalogo = document.getElementById('btnCancelarCatalogo');
 const btnCancelarEliminarCatalogo = document.getElementById('btnCancelarEliminarCatalogo');
@@ -42,24 +41,3 @@ function abrirModalEliminarCatalogo(id) {
     catalogoActual = id;
     modalEliminarCatalogo.style.display = 'flex';
 }
-
-// Guardar o actualizar catálogo
-formCatalogo.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const nombreCatalogo = document.getElementById('nombreCatalogo').value;
-
-    if (catalogoActual) {
-        console.log('Actualizando catálogo:', { id: catalogoActual.id, nombre: nombreCatalogo });
-    } else {
-        console.log('Agregando catálogo:', { nombre: nombreCatalogo });
-    }
-
-    modalCatalogo.style.display = 'none';
-});
-
-// Eliminar catálogo
-formEliminarCatalogo.addEventListener('submit', (e) => {
-    e.preventDefault();
-    console.log('Eliminando catálogo con ID:', catalogoActual);
-    modalEliminarCatalogo.style.display = 'none';
-});
