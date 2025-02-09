@@ -1,4 +1,11 @@
-<?php include "template/header.php"?>
+<?php include "template/header.php";
+    if (isset($_GET['s']) || isset($_GET['e'])) {
+        $class = isset($_GET['s']) ? "success" : "error";
+        $message = isset($_GET['s']) ? htmlspecialchars($_GET['s']) : htmlspecialchars($_GET['e']);
+        echo "<span class='$class'>$message</span>";
+    }
+
+?>
     
         <div class="contenedor-ajustes">
 
@@ -59,17 +66,17 @@
             </div>
 
             
-            <div class="tarjeta">
+            <div class="tarjeta" id="dolar">
                 <h3><i class="fas fa-dollar-sign"></i> Configuración Dólar BCV</h3>
-                <form class="formulario-ajustes">
+                <form class="formulario-ajustes" method="post" action="controllers/adminUpdatedolar.php">
                     <div class="rejilla-formulario">
                         <div>
                             <label>Tasa actual del dólar BCV:</label>
-                            <input type="number" step="0.01" placeholder="60.14" id="tasaDolar">
+                            <input type="number" step="0.01" placeholder="<?php echo $dolar['precio'];?>" id="tasaDolar" name="tasadolar">
                         </div>
                     </div>
                     <div class="opciones-dolar">
-                        <button type="submit" class="boton-guardar">
+                        <button type="submit" class="boton-guardar" name="updatedolar">
                             Actualizar
                         </button>
                     </div>

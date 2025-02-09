@@ -28,11 +28,19 @@
             <button id="botonMenu">
                 <i class="fas fa-bars"></i>
             </button>
-            <span class="BCVdolar"> BCV $ 60.14</span> 
+            <?php
+                session_start();
+                include "../libs/database.php";
+                $db = New Database();
+                $dolar = $db->getPreciodolar();
+                //var_dump($dolar);
+               // echo $dolar['precio'];
+                echo "<span class='BCVdolar'> Precio del dolar:<strong> ".$dolar['precio']." Bs</strong></span>";
+            ?> 
             <div class="perfil-usuario">
                 <img src="https://cdn-icons-png.flaticon.com/512/6073/6073873.png" width="100" alt="Foto de Usuario">
                 <div>
-                    <h4>Juan Guerrero</h4>
+                    <h4><?php echo $_SESSION['email']?></h4>
                     <small>Admin</small>
                 </div>
             </div>

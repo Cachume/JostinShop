@@ -187,15 +187,68 @@
             } 
         }
 
+        public function getPreciodolar(){
+            try {
+                $query = $this->dbc->prepare("SELECT * FROM precio_dolar ORDER BY id DESC LIMIT 1; ");
+                $query->execute();
+                $resultado= $query->get_result();
+                if($resultado->num_rows > 0){
+                    // var_dump($resultado->fetch_assoc());
+                    $dolar =$resultado->fetch_assoc();
+                    return $dolar;
+                }else{
+                    return false;
+                }
+            } catch (Exception $th) {
+                echo($th->getMessage());
+                echo "<script>alert('".$th->getMessage()."');</script>";
+                return 'E82';
+            } 
+        }
 
+        public function updatePreciodolar(float $precio){
+            try {
+                $query = $this->dbc->prepare("INSERT INTO precio_dolar (precio) VALUES (?)");
+                $query->bind_param('d', $precio);
+                $query->execute();
+                if($query->affected_rows > 0){
+                    return true;
+                }else{
+                    return false;
+                }
+            } catch (Exception $th) {
+                echo($th->getMessage());
+                echo "<script>alert('".$th->getMessage()."');</script>";
+                return 'E82';
+            }  
+        }
+
+        public function getCarrito(int $usuario){
+            try {
+                $query= $this->dbc->prepare(
+                    "SELECT p.nombre_producto, p.imagen_producto,p.precio ,c.cantidad 
+                    FROM carrito c
+                    JOIN productos p ON c.id_producto = p.id_producto
+                    WHERE c.id_usuario = ?;
+                    ");
+                $query->bind_param("i",$usuario);
+                $query->execute();
+                $resultado = $query->get_result();
+                if($resultado->num_rows > 0){
+                    return $resultado->fetch_all(MYSQLI_ASSOC);
+                }else{
+                    // echo("No hay datos");
+                    return false;
+                }
+            }catch (Exception $th) {
+                echo($th->getMessage());
+                return 'E82';
+            } 
+        }
         public function __destruct(){
             $this->dbc->close();
         }
     }
 // $base = new Database();
-// if($base->buyProducto(1,5,4)){
-//     echo("existe");
-// }else{
-//    echo("No existe");
-// }
+// $base->getPreciodolar();
 ?>
