@@ -304,3 +304,45 @@ select:focus {
         padding: 8px;
     }
 }
+
+.campos-pago {
+    margin: 20px 0;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.campos-pago .campo-formulario {
+    margin-bottom: 15px;
+}
+
+.campos-pago label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.campos-pago input[type="text"],
+.campos-pago input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+.metodo-info {
+    display: none;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 5px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+}
+
+.metodo-info p {
+    margin: 8px 0;
+    font-size: 0.95em;
+}
+
+.metodo-info strong {
+    color: #2c3e50;
+}

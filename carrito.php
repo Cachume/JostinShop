@@ -52,7 +52,9 @@
                         <div class="cantidad-item">
 
                             <button class="boton-cantidad menos">-</button>
+
                             <input type="text" value="1" class="entrada-cantidad">
+                            
                             <button class="boton-cantidad mas">+</button>
 
                         </div>
@@ -88,18 +90,6 @@
                         <label for="telefono">Teléfono:</label>
                         <input type="tel" id="telefono" name="telefono" required>
                     </div>
-                    <!-- <div class="campo-formulario">
-                        <label for="direccion">Dirección de Envío:</label>
-                        <textarea id="direccion" name="direccion" required></textarea>
-                    </div>
-                    <div class="campo-formulario">
-                        <label for="ciudad">Ciudad:</label>
-                        <input type="text" id="ciudad" name="ciudad" required>
-                    </div>
-                    <div class="campo-formulario">
-                        <label for="codigo-postal">Código Postal:</label>
-                        <input type="text" id="codigo-postal" name="codigo-postal" required>
-                    </div> -->
                 </form>
             </div>
 
@@ -119,12 +109,57 @@
                 </select>
             </div>
 
-            <!-- Información del Método de Pago Seleccionado -->
+            
             <div id="info-pago" class="info-pago">
-                <!-- Aquí se mostrará la información dinámica -->
-            </div>
+                <!-- Efectivo -->
+                <div class="metodo-info" data-metodo="efectivo">
+                    <p><strong>Pago en Efectivo:</strong> Puedes realizar el pago directamente en nuestra tienda</p>
+                    <p>Dirección: Barinitas.Calle 6, Entre Carrera 5 y 6</p>
+                </div>
+                
+                <!-- Transferencia Bancaria -->
+                <div class="metodo-info" data-metodo="transferencia">
+                    <p><strong>Transferencia Bancaria:</strong></p>
+                    <p>Banco de Venezuela</p>
+                    <p>Número de Cuenta: 1234567890</p>
+                    <p>Tipo de Cuenta: Ahorro</p>
+                    <p>Titular: Pedro</p>
+                    <p>Cédula/RIF: J-12.255.112-7</p>
+                </div>
+                
+                <!-- Pago Móvil -->
+                <div class="metodo-info" data-metodo="pago_movil">
+                    <p><strong>Pago Móvil:</strong></p>
+                    <p>Banco Provincial</p>
+                    <p>Número: +58 414-4512536</p>
+                    <p>Cédula/RIF: V-12.345.</p>
+                    
+                </div>
+                
+                <!-- Binance -->
+                <div class="metodo-info" data-metodo="binance">
+                    <p><strong>Binance:</strong></p>
+                    <p>Wallet: abc123def456ghi789</p>
+                </div>
+                
+                <!-- PayPal -->
+                <div class="metodo-info" data-metodo="paypal">
+                    <p><strong>PayPal:</strong></p>
+                    <p>Enlace: <a href="#" target="_blank">paypal.me/nombre_X</a></p>
+                </div>
 
-            <!-- Total y Botón de Pago -->
+                <div class="campo-formulario">
+                    <label for="referencia-pago">Referencia/Número de Transacción:</label>
+                    <input type="text" id="referencia-pago" name="referencia-pago" required>
+                </div>
+
+                <div class="campo-formulario">
+                    <label for="comprobante-pago">Subir Comprobante (imagen):</label>
+                    <input type="file" id="comprobante-pago" name="comprobante-pago" accept="image/*" required>
+                </div>
+
+            </div>
+            
             <div class="total-pago">
                 <p>Total: <span id="precio-total" class="precio-total">$20.00</span></p>
                 <button class="boton-pagar">Proceder al Pago</button>
