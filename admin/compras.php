@@ -1,65 +1,111 @@
 <?php include "template/header.php"?>
 
 
-<main>
-    <div class="tabla-productos">
+        <section class="historial-compras">
+            <h2>Historial de Compras</h2>
+            <table class="tabla-compras">
+                <thead>
+                    <tr>
+                        <th>Referencia</th>
+                        <th>Método de Pago</th>
+                        <th>Fecha</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-referencia="12345">
+                        <td><a href="#" class="ver-detalle">12345</a></td>
+                        <td>Tarjeta de Crédito</td>
+                        <td>2023-10-01</td>
+                        <td>
+                            <button class="aceptar-compra" data-referencia="12345">Aceptar</button>
+                            <button class="rechazar-compra" data-referencia="12345">Rechazar</button>
+                        </td>
+                    </tr>
+                    <tr data-referencia="67890">
+                        <td><a href="#" class="ver-detalle">67890</a></td>
+                        <td>PayPal</td>
+                        <td>2023-10-02</td>
+                        <td>
+                            <button class="aceptar-compra" data-referencia="67890">Aceptar</button>
+                            <button class="rechazar-compra" data-referencia="67890">Rechazar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
 
-        <div class="header-tabla">
-            <h2>Historial de compras</h2>
+        <div class="ventana-modal" id="ventanaModalDetalles">
+
+            <div class="modal-contenido">
+
+                <span class="cerrar-modal">&times;</span>
+
+                <h2>Detalles de la Compra</h2>
+                <div class="detalles-compra">
+                    <p><strong>Nombre:</strong> <span id="nombres">Deviam</span></p>
+                    <p><strong>Apellido:</strong> Trusman<span id="apellidos"></span></p>
+                    <p><strong>Teléfono:</strong><span id="telefono">+58 414-3512548</span></p>
+                    <p><strong>Cédula/RIF:</strong><span id="cedula">J-23.245.111-7</span></p>
+                    <p><strong>Correo:</strong> <span id="correo">asd@gmail.com</span></p>
+                    <p><strong>COMPRAS REALIZADAS:</strong><span id="compras">
+                    <ul>
+                        <li>camisa</li>
+                        <li>pantalones</li>
+                    </ul></span></p>
+                    <p><strong>Identificador de compra:</strong> <span id="referencia">12345</span></p>
+                    <p><strong>Capture:</strong></p>
+                    <img id="capture" src="../src/capture.png" alt="Captura de la Compra">
+                </div>
+            </div>
         </div>
 
-        <table class="tabla_catalogo">
+        <div class="ventana-modal" id="ventanaModalAceptar">
 
-            <thead>
-                <tr>
-                    <td>N°</td>
-                    <td>Nombre del producto</td>
-                    <td>Categoria</td>
-                    <td>Imagen</td>
-                    <td>Cantidad</td>
-                    <td>Metodo de pago</td>
-                    <td>Capture/Referencia</td>
-                    <td>Precio Uitario</td>
-                    <td>Precio Total</td>
-                    <td>Fecha</td>
-                </tr>
-            </thead>
+            <div class="modal-contenido">
 
-            <tbody>
+                <span class="cerrar-modal">&times;</span>
+
+                <h2>¿Seguro de aceptar esta compra?</h2>
+
+                <div class="detalles-compra">
+                    <h3><strong>Datos de la compra</strong></h3>
+                    <p><strong>Nombre:</strong> <span id="nombres">Deviam</span></p>
+                    <p><strong>Apellido:</strong> Trusman<span id="apellidos"></span></p>
+                    <p><strong>Teléfono:</strong><span id="telefono">+58 414-3512548</span></p>
+                    <p><strong>Cédula/RIF:</strong><span id="cedula">J-23.245.111-7</span></p>
+                    <p><strong>Correo:</strong> <span id="correo">asd@gmail.com</span></p>
+                    <p><strong>COMPRAS REALIZADAS:</strong><span id="compras">
+                    <ul>
+                        <li>camisa</li>
+                        <li>pantalones</li>
+                    </ul></span></p>
+                    <p><strong>Identificador de compra:</strong> <span id="referencia">12345</span></p>
+                    <p><strong>Capture:</strong></p>
+                    <img id="capture" src="../src/capture.png" alt="Captura de la Compra">
+                    <br><br>
+                    <p>¿Está seguro de aceptar esta compra?</p>
+                    <button id="confirmarAceptar">Confirmar</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="ventana-modal" id="ventanaModalRechazar">
+
+            <div class="modal-contenido">
+
+                <span class="cerrar-modal">&times;</span>
+
+                <h2>Rechazar Compra</h2>
+
+                <div class="detalles-compra">
+                    <label for="motivoRechazo">Motivo del Rechazo:</label>
+                    <textarea id="motivoRechazo" rows="4" cols="50"></textarea>
+                    <button id="confirmarRechazo">Confirmar</button>
+                </div>
                 
-                <tr class="tr_fila">
-                    <td>1</td>
-                    <td>Camiseta Clásica</td>
-                    <td>Franelas</td>
-                    <td><img src="../src/Franelas.png" alt="Producto 1" class="imagen-producto"></td>
-                    <td>3</td>
-                    <td>Pago Movil</td>
-                    <td><img src="" alt="00000458839" class="imagen-producto"></td>
-                    <td>$10.00</td>
-                    <td>$30.00</td>
-                    <td>28/01/2025</td>
-                </tr>
+            </div>
+        </div>
 
-                <tr class="tr_fila">
-                    <td>2</td>
-                    <td>Gorra Premium</td>
-                    <td>Gorras</td>
-                    <td><img src="../src/Gorras.png" alt="Producto 2" class="imagen-producto"></td>
-                    <td>2</td>
-                    <td>Pago Movil</td>
-                    <td><img src="" alt="00000458839" class="imagen-producto"></td>
-                    <td>$20.00</td>
-                    <td>$40.00</td>
-                    <td>12/02/2025</td>
-                </tr>
-
-            </tbody>
-
-        </table>
-    </div>
-
-</main>
-
-</div>
 
 <?php include "template/footer.php"?>

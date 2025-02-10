@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/admin.css">
     <link rel="stylesheet" href="css/producto.css">
     <link rel="stylesheet" href="css/catalogo.css">
+    <link rel="stylesheet" href="css/compras.css">
     <link rel="stylesheet" href="css/ajustes.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
