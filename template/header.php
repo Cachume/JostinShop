@@ -42,7 +42,11 @@
                     <?php
                         if(isset($_SESSION['id']) ){
                             echo '<a href="salir.php">
-                        <img src="src/lista(1).png" alt="" srcset="">
+                        <img src="src/salir.png" alt="" srcset="">
+                    </a>';
+                        }else{
+                            echo '<a href="login.php">
+                        <img src="src/login.png" alt="" srcset="">
                     </a>';
                         }
                     ?> 
@@ -54,7 +58,17 @@
             <span class="header-title">
                 Maak Store
             </span>
-            <img src="src/carrito-de-compras.png" alt="" srcset="">
+            <?php
+                if(isset($_SESSION['id']) ){
+                            echo '<a href="salir.php">
+                        <img src="src/salir.png" alt="" srcset="">
+                    </a>';
+                        }else{
+                            echo '<a href="login.php">
+                        <img src="src/login.png" alt="" srcset="">
+                    </a>';
+                        }
+                    ?> 
         </div>
         <div class="sidebar" id="sidebar">
             <!-- Contenido del menú lateral -->         
@@ -62,9 +76,17 @@
                 <img src="src/x.png" alt="" onclick="menuShow();">
                 <li><a href="index.php">Inicio</a></li>
                 <li><a href="catalogo.php">Catálogo</a></li>
-                <li><a href="login.php">Iniciar Sesion</a></li>
-                <li><a href="carrito.php">Carrito</a></li>
-                <li><a href="#">Contacto</a></li>
+                <?php
+                    if(isset($_SESSION['id'])){
+                        echo '<li><a href="pedidos.php">Pedidos</a></li>';
+                        echo '<li><a href="carrito.php">Carrito</a></li>';
+                        if($_SESSION['admin']==1){
+                            echo '<li><a href="admin/index.php">Administrador</a></li>'; 
+                        }
+                    }else{
+                        echo '<li><a href="login.php">Iniciar Sesion</a></li>';
+                    }
+                ?>
                 <!-- Agrega más enlaces según sea necesario -->
             </ul>
         </div>      

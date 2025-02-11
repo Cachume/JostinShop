@@ -4,8 +4,9 @@ $sysdb= new Database();
 
 if(!isset($_GET['pedido'])){
     $pedidos = $sysdb->getPedidosuser($_SESSION['id']);
-        
+    if($pedidos){
     echo '<section class="historial-compras"  >
+    <h1>Historial de Pedidos</h1>
     <table class="tabla-compras">
                 <thead>
                     <tr>
@@ -33,7 +34,7 @@ if(!isset($_GET['pedido'])){
 
     }
     echo '    </tbody>
-    </table>';
+    </table>';}
     }else{
             if (ctype_digit($_GET['pedido'])){
                 $pedidourl=intval(($_GET['pedido']));
