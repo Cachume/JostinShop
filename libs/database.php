@@ -334,6 +334,24 @@
             } 
         }
 
+        public function getPedidosuser($id){
+            try {
+                $query = $this->dbc->prepare("SELECT * FROM pedidos WHERE id_usuario=?");
+                $query->bind_param('i', $id);
+                $query->execute();
+                $resultado = $query->get_result();
+                if($resultado->num_rows > 0){
+                    return $resultado->fetch_all(MYSQLI_ASSOC);
+                }else{
+                    // echo("No hay datos");
+                    return false;
+                }
+            }catch (Exception $th) {
+                echo($th->getMessage());
+                return 'E82';
+            } 
+        }
+
         public function __destruct(){
             $this->dbc->close();
         }

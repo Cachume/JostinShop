@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./css/producto.css">
     <link rel="stylesheet" href="css/carrito2.css">
+    <link rel="stylesheet" href="css/pedidos.css">
 </head>
 <body>
     <header>
@@ -19,12 +20,15 @@
                 <nav class="header-nav">
                     <a href="index.php">INICIO</a>
                     <a href="catalogo.php">CATALOGO</a>
-                    <a href="carrito.php">CARRITO</a>
+                    
                     <a href="index.html">NOSOTROS</a>
                     <?php
                     session_start();
                         if(isset($_SESSION['id'])){
-                            echo '<a href="salir.php">SALIR</a>';
+                            echo '<a href="pedidos.php">PEDIDOS</a>';
+                            echo '<a href="carrito.php">CARRITO</a>';
+                        }else{
+                            echo '<a href="login.php">Iniciar Sesion</a>';
                         }
                     ?>
                 </nav>
