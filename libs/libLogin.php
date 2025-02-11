@@ -25,6 +25,7 @@ function logUser(string $email, string $password){
             $_SESSION['id']=$login['id'];
             $_SESSION['cdi']=$login['cdi'];
             $_SESSION['email']=$login['email'];
+            $_SESSION['admin']=$login['admin'];
             echo("Correcto");
             var_dump($login);
             return true;

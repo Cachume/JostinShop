@@ -49,7 +49,7 @@
         }
         public function iniciarSesion($correo,$contrasena){
             try {
-                $query= $this->dbc->prepare("SELECT id, cdi, email, password FROM `clientes` WHERE email= ?");
+                $query= $this->dbc->prepare("SELECT id, cdi, email, password, admin FROM `clientes` WHERE email= ?");
                 $query->bind_param('s',$correo);
                 $query->execute();
                 $resultado= $query->get_result();
@@ -495,6 +495,60 @@
             try {
                 $query = $this->dbc->prepare("DELETE FROM catalogo WHERE id_categoria=?");
                 $query->bind_param('i', $catalogo);
+                $query->execute();
+                if($query->affected_rows > 0){
+                    return true;
+                }else{
+                    return false;
+                }
+            } catch (Exception $th) {
+                echo($th->getMessage());
+                echo "<script>alert('".$th->getMessage()."');</script>";
+                return 'E82';
+            }  
+
+        }
+
+        public function getUsuarios(){
+            try {
+                $query = $this->dbc->prepare("SELECT id, cdi, email, admin FROM clientes");
+                //$query->bind_param('s', $tabla);
+                $query->execute();
+                $resultado = $query->get_result();
+                if($resultado->num_rows > 0){
+                    return $resultado->fetch_all(MYSQLI_ASSOC);
+                }else{
+                    // echo("No hay datos");
+                    return false;
+                }
+            }catch (Exception $th) {
+                echo($th->getMessage());
+                return 'E82';
+            } 
+        }
+
+        public function giveAdmin($user){
+            try {
+                $query = $this->dbc->prepare("UPDATE clientes SET admin=1 WHERE id=?");
+                $query->bind_param('i', $user);
+                $query->execute();
+                if($query->affected_rows > 0){
+                    return true;
+                }else{
+                    return false;
+                }
+            } catch (Exception $th) {
+                echo($th->getMessage());
+                echo "<script>alert('".$th->getMessage()."');</script>";
+                return 'E82';
+            }  
+
+        }
+
+        public function removeAdmin($user){
+            try {
+                $query = $this->dbc->prepare("UPDATE clientes SET admin=0 WHERE id=?");
+                $query->bind_param('i', $user);
                 $query->execute();
                 if($query->affected_rows > 0){
                     return true;

@@ -1,4 +1,11 @@
         <?php include "template/header.php"?>
+        <?php
+            if (isset($_GET['s']) || isset($_GET['e'])) {
+                $class = isset($_GET['s']) ? "success" : "error";
+                $message = isset($_GET['s']) ? htmlspecialchars($_GET['s']) : htmlspecialchars($_GET['e']);
+                echo "<span class='$class'>$message</span>";
+            }
+        ?>
 
         <main>
             <div class="tabla-productos">
@@ -19,18 +26,7 @@
 
                     <tbody>
                         <!-- Datos de ejemplo -->
-                        <tr class="tr_fila">
-                            <td>3</td>
-                            <td>No</td>
-                            <td><a href="http://">Dar Admin</a></td>
-                        </tr>
-
-                        <tr class="tr_fila">
-                            <td>255</td>
-                            <td>No</td>
-                            <td><a href="http://">Dar Admin</a></td>
-                        </tr>
-
+                        <?php include("controllers/adminUsuarios.php");?>
                     </tbody>
 
                 </table>

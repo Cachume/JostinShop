@@ -380,6 +380,22 @@ header h2 {
         display: block;
     }
 }
+.adminyes{
+    background: red;
+  color: white;
+  font-weight: bolder;
+  text-align: center;
+  padding: 4px;
+  text-decoration: none;
+}
+.adminno{
+    text-decoration: none;
+    background: #84d00e;
+  color: white;
+  font-weight: bolder;
+  text-align: center;
+  padding: 4px;
+}
 
 @media (min-width: 769px) {
     #botonMenu {

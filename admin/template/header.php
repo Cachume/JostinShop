@@ -20,7 +20,7 @@
             <li><a href="catalogo.php"><i class="fas fa-box-open"></i> Catálogo</a></li>
             <li><a href="compras.php"><i class="fas fa-shopping-cart"></i> Compras</a></li>
             <li><a href="ajustes.php"><i class="fas fa-cog"></i> Ajustes</a></li>
-            <li><a href="#"><i class="fas fa-sign-out-alt"></i> Salir</a></li>
+            <li><a href="salir.php"><i class="fas fa-sign-out-alt"></i> Salir</a></li>
         </ul>
     </div>
     <div class="fondo-oscuro" id="fondoOscuro"></div>
