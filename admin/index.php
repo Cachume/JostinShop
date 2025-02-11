@@ -1,5 +1,8 @@
         <?php 
-            include "./template/header.php"
+            include "./template/header.php";
+            $sysdb= new Database();
+            $total_usuarios = $sysdb->getContar("clientes");
+            
         ?>
         
         <main>
@@ -7,7 +10,7 @@
                 <div class="tarjeta">
                     <div>
                         <h3>Usuarios Registrados</h3>
-                        <p>150</p>
+                        <p><?= $total_usuarios['total'];?></p>
                     </div>
                     <i class="fas fa-users fa-2x"></i>
                 </div>

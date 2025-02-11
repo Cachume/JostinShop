@@ -1,6 +1,11 @@
-<?php include "template/header.php"?>
+<?php include "template/header.php";
 
-
+            if (isset($_GET['s']) || isset($_GET['e'])) {
+                $class = isset($_GET['s']) ? "success" : "error";
+                $message = isset($_GET['s']) ? htmlspecialchars($_GET['s']) : htmlspecialchars($_GET['e']);
+                echo "<span class='$class'>$message</span>";
+            }
+        ?>
         <section class="historial-compras">
             <h2>Historial de Compras</h2>
             <table class="tabla-compras">

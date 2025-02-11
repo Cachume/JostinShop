@@ -351,6 +351,94 @@
                 return 'E82';
             } 
         }
+        
+        public function getContar($tabla){
+            try {
+                $query = $this->dbc->prepare("SELECT COUNT(*) AS total FROM clientes ");
+                //$query->bind_param('s', $tabla);
+                $query->execute();
+                $resultado = $query->get_result();
+                if($resultado->num_rows > 0){
+                    $datos =$resultado->fetch_assoc();
+                    return $datos;
+                }else{
+                    // echo("No hay datos");
+                    return false;
+                }
+            }catch (Exception $th) {
+                echo($th->getMessage());
+                return 'E82';
+            } 
+        }
+
+        public function getTotal(){
+            try {
+                $query = $this->dbc->prepare("SELECT total_usd FROM `pedidos` WHERE pago_estado = 'verificado'");
+                //$query->bind_param('s', $tabla);
+                $query->execute();
+                $resultado = $query->get_result();
+                if($resultado->num_rows > 0){
+                    return $resultado->fetch_all(MYSQLI_ASSOC);
+                }else{
+                    // echo("No hay datos");
+                    return false;
+                }
+            }catch (Exception $th) {
+                echo($th->getMessage());
+                return 'E82';
+            } 
+        }
+        public function productoConfirmar($id){
+            try {
+                $query = $this->dbc->prepare("UPDATE pedidos SET pago_estado=? WHERE id=?");
+                $texto="verificado";
+                $query->bind_param('si', $texto,$id);
+                $query->execute();
+                if($query->affected_rows > 0){
+                    return true;
+                }else{
+                    return false;
+                }
+            } catch (Exception $th) {
+                echo($th->getMessage());
+                echo "<script>alert('".$th->getMessage()."');</script>";
+                return 'E82';
+            }  
+        }
+        public function productoRechazar($id){
+            try {
+                $this->dbc->begin_transaction();
+                $query = $this->dbc->prepare("UPDATE pedidos SET pago_estado=? WHERE id=?");
+                $texto="rechazado";
+                $query->bind_param('si', $texto,$id);
+                $query->execute();
+                
+                $pedidos = $this->dbc->prepare("SELECT id_producto, cantidad FROM pedidos_items WHERE id_pedidos = ?");
+                $pedidos->bind_param('i',$id);
+                $pedidos->execute();
+                $resultado = $pedidos->get_result();
+                //var_dump($resultado->fetch_all(MYSQLI_ASSOC));
+                $dato= $resultado->fetch_all(MYSQLI_ASSOC);
+                $carrito = $this->dbc->prepare("UPDATE productos SET stock=+ ? WHERE id_producto = ?");
+                foreach ($dato as $value) {
+                    $carrito->bind_param('ii',$value['id_producto'],$value['cantidad']);
+                    $carrito->execute();
+                }
+
+                $eliminar = $this->dbc->prepare("DELETE FROM pedidos_items WHERE id_pedidos=?");
+                $eliminar->bind_param('i',$id);
+                $eliminar->execute();
+
+                $this->dbc->commit();
+                return true;
+            }catch (Exception $e) {
+                // Revertir transacción en caso de error
+                $this->dbc->rollback();
+                echo "Error al guardar el pedido: " . $e->getMessage();
+                return false;
+            }
+        }
+
 
         public function __destruct(){
             $this->dbc->close();

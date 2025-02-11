@@ -9,16 +9,24 @@ if(!isset($_GET['pedido'])){
         $referencia = $value['pago_referencia'];
         $metodo_pago = $value['pago_tipo'];
         $fecha = $value['creado'];
+        $estado = $value['pago_estado'];
     
         echo '<tr data-referencia="' . $referencia . '">';
         echo '    <td><a href="compras.php?pedido='.$id.'" target="_blank" class="ver-detalle">' . $referencia . '</a></td>';
         echo '    <td>' . $metodo_pago . '</td>';
         echo '    <td>' . $fecha . '</td>';
-        echo '    <td>';
-        echo '        <button class="aceptar-compra" data-referencia="' . $referencia . '">Aceptar</button>';
-        echo '        <button class="rechazar-compra" data-referencia="' . $referencia . '">Rechazar</button>';
-        echo '    </td>';
-        echo '</tr>';
+        if($estado != 'pendiente'){
+            $texto=$valor = ($estado =='verificado') ? "Verificado" : "Rechazado";
+            echo "<td>$texto</td>";
+        }else{
+            echo '    <td>
+                        <form method="post" action="controllers/adminVefcompras.php">';
+            echo "<input type='hidden' name='pedido' value='$id'>";
+            echo '        <button class="aceptar-compra" name="aceptar" data-referencia="' . $referencia . '">Aceptar</button>';
+            echo '        <button class="rechazar-compra" name="rechazar" data-referencia="' . $referencia . '">Rechazar</button>';
+            echo '    </form></td>';
+            echo '</tr>';
+        }
         }
     }else{
         if (ctype_digit($_GET['pedido'])){
