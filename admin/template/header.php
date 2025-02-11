@@ -1,3 +1,14 @@
+<?php
+session_start();
+if(isset($_SESSION['id'])){
+    if($_SESSION['admin']!=1){
+        header("location: ../index.php");
+    }
+}else{
+    header("location: ../login.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -30,7 +41,7 @@
                 <i class="fas fa-bars"></i>
             </button>
             <?php
-                session_start();
+
                 include "../libs/database.php";
                 $db = New Database();
                 $dolar = $db->getPreciodolar();

@@ -1,4 +1,8 @@
-<?php include_once("template/header.php");?>
+<?php include_once("template/header.php");
+if(!isset($_SESSION['id'])){
+    header("location: login.php");
+}
+?>
 
 <body class="carrito_body">
     <div class="contenedor">

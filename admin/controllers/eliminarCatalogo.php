@@ -1,4 +1,12 @@
 <?php
+session_start();
+if(isset($_SESSION['id'])){
+    if($_SESSION['admin']!=1){
+        header("location: ../index.php");
+    }
+}else{
+    header("location: ../login.php");
+}
  if (isset($_GET['c'])) {
     $valor = $_GET['c'] ?? '';
     if (ctype_digit($valor)) { // Solo números positivos

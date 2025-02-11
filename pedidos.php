@@ -1,5 +1,9 @@
-<?php include_once("template/header.php");?>
-<>
+<?php include_once("template/header.php");
+if(!isset($_SESSION['id'])){
+    header("location: login.php");
+}
+?>
+
     <main class="main_pedidos">
     <?php 
            if (isset($_GET['s']) || isset($_GET['e'])) {

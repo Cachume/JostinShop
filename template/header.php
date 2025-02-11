@@ -27,8 +27,11 @@
                         if(isset($_SESSION['id'])){
                             echo '<a href="pedidos.php">PEDIDOS</a>';
                             echo '<a href="carrito.php">CARRITO</a>';
+                            if($_SESSION['admin']==1){
+                                echo '<a href="admin/index.php">ADMINISTRADOR</a>'; 
+                            }
                         }else{
-                            echo '<a href="login.php">Iniciar Sesion</a>';
+                            echo '<a href="login.php">INICIAR SESION</a>';
                         }
                     ?>
                 </nav>
@@ -37,7 +40,7 @@
                         <img src="src/carrito-de-compras.png" alt="" srcset="">
                     </a>
                     <?php
-                        if(isset($_SESSION['id'])){
+                        if(isset($_SESSION['id']) ){
                             echo '<a href="salir.php">
                         <img src="src/lista(1).png" alt="" srcset="">
                     </a>';

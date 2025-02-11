@@ -1,4 +1,12 @@
 <?php
+session_start();
+if(isset($_SESSION['id'])){
+    if($_SESSION['admin']!=1){
+        header("location: ../index.php");
+    }
+}else{
+    header("location: ../login.php");
+}
 if(isset($_POST['addCatalogo'])){
     include_once("../libs/database.php");
     $sysdb= new Database();

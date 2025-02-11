@@ -1,9 +1,12 @@
 <?php
     session_start();
-    echo($_SESSION['id']);
-    echo "<pre>";
-    print_r($_POST);
-    echo "</pre>";
+    if(isset($_SESSION['id'])){
+        if($_SESSION['admin']!=1){
+            header("location: ../index.php");
+        }
+    }else{
+        header("location: ../login.php");
+    }
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['cantidad']) && ctype_digit($_POST['cantidad']) && isset($_POST['p']) && ctype_digit($_POST['p']) && isset($_POST['c']) && ctype_digit($_POST['c'])) {
         include_once("../libs/database.php");

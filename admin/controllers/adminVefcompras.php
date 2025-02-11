@@ -1,7 +1,12 @@
 <?php
-echo "<pre>";
-print_r($_POST);
-echo "</pre>";
+session_start();
+if(isset($_SESSION['id'])){
+    if($_SESSION['admin']!=1){
+        header("location: ../index.php");
+    }
+}else{
+    header("location: ../login.php");
+}
 
 if(is_numeric($_POST['pedido'])){
     $pedido_id = $_POST['pedido'];

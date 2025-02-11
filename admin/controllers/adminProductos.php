@@ -1,11 +1,13 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    echo "<pre>";
-    print_r($_POST);
-    echo "</pre>";
-    echo "<pre>";
-    print_r($_FILES);
-    echo "</pre>";
+    session_start();
+    if(isset($_SESSION['id'])){
+        if($_SESSION['admin']!=1){
+            header("location: ../index.php");
+        }
+    }else{
+        header("location: ../login.php");
+    }
         function validateInput($input) {
             // Validación del nombre (mínimo 3 caracteres)
             if (strlen($input['nombre']) < 3) {
