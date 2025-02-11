@@ -8,11 +8,12 @@
                 </div>
 
                 <table class="tabla_catalogo">
-
                     <thead>
                         <tr>
-                            <td>Cantidad de usuarios</td>
-                            <td>Tipo de usuario</td>
+                            <td>Correo Electronico</td>
+                            <td>Cedula de Identidad</td>
+                            <td>Administrador</td>
+                            <td>Gestionar</td>
                         </tr>
                     </thead>
 
@@ -20,12 +21,14 @@
                         <!-- Datos de ejemplo -->
                         <tr class="tr_fila">
                             <td>3</td>
-                            <td>Admin</td>
+                            <td>No</td>
+                            <td><a href="http://">Dar Admin</a></td>
                         </tr>
 
                         <tr class="tr_fila">
                             <td>255</td>
-                            <td>Cliente</td>
+                            <td>No</td>
+                            <td><a href="http://">Dar Admin</a></td>
                         </tr>
 
                     </tbody>

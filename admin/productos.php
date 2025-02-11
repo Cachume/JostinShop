@@ -54,8 +54,8 @@
                                     echo("<td>$precio</td>");
                                     echo("<td><strong>".$total."</strong></td>");
                                     echo("<td class='td_acciones'>");
-                                    echo('<button class="editar" onclick="abrirModalEditar(1)"><i class="fas fa-edit"></i></button>');
-                                    echo('<button class="eliminar" onclick="abrirModalEliminar(1)"><i class="fas fa-trash"></i></button>');
+                                    echo('<a class="editar" href="modificar_producto.php?p='.$id.'"><i class="fas fa-edit"></i></a>');
+                                    echo('<a class="eliminar"href="controllers/eliminarProducto.php?p='.$id.' "><i class="fas fa-trash"></i></a>');
                                     echo('</td>');
                                     echo('</tr>');
                                 }

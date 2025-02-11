@@ -439,6 +439,75 @@
             }
         }
 
+        public function modificarproducto(string $nombre, string $imagen, string $descripcion,float $precio, int $stock,int $id){
+            try {
+                $preciof = floatval($precio);
+                if(!$imagen){
+                    $modi= $this->dbc->prepare("UPDATE productos 
+                    SET nombre_producto = ?, 
+                        descripcion_producto = ?, 
+                        precio = ?, 
+                        stock = ? 
+                    WHERE id_producto = ?");
+                    $modi->bind_param('ssdii',$nombre,$descripcion,$preciof,$stock,$id);
+                }else{
+                    $modi= $this->dbc->prepare("UPDATE productos 
+                    SET nombre_producto = ?, 
+                        descripcion_producto = ?, 
+                        imagen_producto = ?, 
+                        precio = ?, 
+                        stock = ? 
+                    WHERE id_producto = ?");
+                    $modi->bind_param('sssdii',$nombre,$descripcion,$imagen,$preciof,$stock,$id);
+                }
+                $modi->execute();
+                if($modi->affected_rows > 0){
+                    return true;
+                }else{
+                    return false;
+                }
+            } catch (Exception $th) {
+                echo($th->getMessage());
+                echo "<script>alert('".$th->getMessage()."');</script>";
+                return 'E82';
+            } 
+        }
+
+        public function deleteProducto($producto){
+            try {
+                $query = $this->dbc->prepare("DELETE FROM productos WHERE id_producto=?");
+                $query->bind_param('i', $producto);
+                $query->execute();
+                if($query->affected_rows > 0){
+                    return true;
+                }else{
+                    return false;
+                }
+            } catch (Exception $th) {
+                echo($th->getMessage());
+                echo "<script>alert('".$th->getMessage()."');</script>";
+                return 'E82';
+            }  
+
+        }
+
+        public function deleteCatalogo($catalogo){
+            try {
+                $query = $this->dbc->prepare("DELETE FROM catalogo WHERE id_categoria=?");
+                $query->bind_param('i', $catalogo);
+                $query->execute();
+                if($query->affected_rows > 0){
+                    return true;
+                }else{
+                    return false;
+                }
+            } catch (Exception $th) {
+                echo($th->getMessage());
+                echo "<script>alert('".$th->getMessage()."');</script>";
+                return 'E82';
+            }  
+
+        }
 
         public function __destruct(){
             $this->dbc->close();

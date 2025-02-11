@@ -45,8 +45,8 @@
                                 echo("<td><img src='../src/catalogo/$imagen' alt='Producto 1' class='imagen-producto'></td>");
                                 echo("<td><strong>".$total."</strong></td>");
                                 echo("<td>");
-                                echo("<button class='editar' onclick='abrirModalEditarCatalogo(2)'><i class='fas fa-edit'></i></button>");
-                                echo('<button class="eliminar" onclick="abrirModalEliminarCatalogo(2)"><i class="fas fa-trash"></i></button>');
+                                //echo("<button class='editar' onclick='abrirModalEditarCatalogo(2)'><i class='fas fa-edit'></i></button>");
+                                echo('<a class="eliminar"href="controllers/eliminarCatalogo.php?c='.$id.' "><i class="fas fa-trash"></i></a>');
                                 echo('</td>');
                                 echo('</tr>');
                             }

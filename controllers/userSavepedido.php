@@ -103,9 +103,9 @@
                 echo "<script>alert('".$th->getMessage()."');</script>";
                 exit();
             }
-            //header("location:../pedidos.php?s=".urlencode("Se ha creado tu pedido con exito"));
+            header("location:../pedidos.php?s=".urlencode("Se ha creado tu pedido con exito"));
         }else{
-            //header("location:../pedidos.php?e=".urlencode("No se ha podido completar tu pedido, intenta mas tarde"));
+            header("location:../pedidos.php?e=".urlencode("No se ha podido completar tu pedido, intenta mas tarde"));
         }        
     } else {
         $error = $validador !== true ? $validador : $validadorImagen;
