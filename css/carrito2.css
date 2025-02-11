@@ -5,11 +5,16 @@
     font-family: Arial, sans-serif;
 }
 
+.carrito_body{
+    background: #18293d;
+}
+
 .contenedor {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
     width: 95%; 
+    margin-top: 6rem;
 }
 
 header {

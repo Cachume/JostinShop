@@ -11,6 +11,22 @@
     margin: auto;
 }
 
+.error {
+    color: red;
+    text-align: center;
+    padding: 10px;
+    font-weight: bolder;
+    font-size: 18px;
+}
+
+.success {
+    color: green;
+    text-align: center;
+    padding: 10px;
+    font-weight: bolder;
+    font-size: 18px;
+}
+
 .cabecera .overlay {
     position: absolute;
     top: 0;

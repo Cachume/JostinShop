@@ -83,15 +83,15 @@ document.querySelectorAll('.boton-cantidad').forEach(boton => {
 });
 
 // Calcular precio total
-function actualizarPrecioTotal() {
-    let total = 0;
-    document.querySelectorAll('.item-carrito').forEach(item => {
-        const precio = parseFloat(item.querySelector('.precio-item').textContent.replace('$', ''));
-        const cantidad = parseInt(item.querySelector('.entrada-cantidad').value) || 1;
-        total += precio * cantidad;
-    });
-    elementoPrecioTotal.textContent = `$${total.toFixed(2)}`;
-}
+// function actualizarPrecioTotal() {
+//     let total = 0;
+//     document.querySelectorAll('.item-carrito').forEach(item => {
+//         const precio = parseFloat(item.querySelector('.precio-item').textContent.replace('$', ''));
+//         const cantidad = parseInt(item.querySelector('.entrada-cantidad').value) || 1;
+//         total += precio * cantidad;
+//     });
+//     elementoPrecioTotal.textContent = `$${total.toFixed(2)}`;
+// }
 
 
 actualizarPrecioTotal();

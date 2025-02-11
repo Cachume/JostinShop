@@ -13,16 +13,18 @@ if (isset($_GET['p'])) {
         }else{
          //var_dump($catalogo);
             foreach ($catalogo as $value) {
-            $id=$value['id_producto'];
-            $nombre=$value['nombre_producto'];
-            $imagen=$value['imagen_producto'];
-            $catalogo = $value['id_categoria'];
-            echo("<a href='producto.php?c=$catalogo&p=$id'>");
-            echo('<div class="item">');
-            echo("<img src='./src/producto/$imagen' alt='Camisetas deportivas'>");
-            echo("<span>$nombre</span>");
-            echo('</div>');
-            echo('</a>');
+            if($value['stock']>0){
+                $id=$value['id_producto'];
+                $nombre=$value['nombre_producto'];
+                $imagen=$value['imagen_producto'];
+                $catalogo = $value['id_categoria'];
+                echo("<a href='producto.php?c=$catalogo&p=$id'>");
+                echo('<div class="item">');
+                echo("<img src='./src/producto/$imagen' alt='Camisetas deportivas'>");
+                echo("<span>$nombre</span>");
+                echo('</div>');
+                echo('</a>');
+                }
             }
         }
     } else {

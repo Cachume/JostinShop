@@ -226,7 +226,7 @@
         public function getCarrito(int $usuario){
             try {
                 $query= $this->dbc->prepare(
-                    "SELECT p.nombre_producto, p.imagen_producto,p.precio ,c.cantidad 
+                    "SELECT p.nombre_producto, p.imagen_producto,p.precio,p.id_producto ,c.cantidad 
                     FROM carrito c
                     JOIN productos p ON c.id_producto = p.id_producto
                     WHERE c.id_usuario = ?;
@@ -245,6 +245,39 @@
                 return 'E82';
             } 
         }
+
+        public function createPedido($uid,$fullname,$phone,$tusd,$tbs,$pr,$pi,$carrito_json){
+            try {
+                $this->dbc->begin_transaction();
+                $sql="INSERT INTO pedidos (id_usuario,nombre_completo,telefono,total_bs,total_usd,pago_referencia,pago_imagen)
+                VALUES (?,?,?,?,?,?,?)";
+                $pedido = $this->dbc->prepare($sql);
+                $pedido->bind_param("issddss",$uid,$fullname,$phone,$tbs,$tusd,$pr,$pi);
+                $pedido->execute();
+                $pedido_id=$pedido->insert_id;
+                $pedido->close();
+
+                $carrito= json_decode($carrito_json, true);
+                //Insertar los productos en la tabla pedidos items
+                $sql="INSERT INTO pedidos_items (id_pedidos, id_producto, cantidad, precio)
+                VALUES (?,?,?,?)";
+                $pedidoitem = $this->dbc->prepare($sql);
+                foreach ($carrito as $item) {
+                    $pedidoitem->bind_param("iiid", $pedido_id, $item['id_producto'], $item['cantidad'], $item['precio']);
+                    $pedidoitem->execute();
+                }
+                $pedidoitem->close();
+                $this->dbc->query("DELETE FROM carrito WHERE id_usuario = $uid");
+                $this->dbc->commit();
+                return true;
+            }catch (Exception $e) {
+                // Revertir transacción en caso de error
+                $this->dbc->rollback();
+                echo "Error al guardar el pedido: " . $e->getMessage();
+                return false;
+            }
+        }
+
         public function __destruct(){
             $this->dbc->close();
         }

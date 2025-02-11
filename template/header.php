@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./css/producto.css">
+    <link rel="stylesheet" href="css/carrito2.css">
 </head>
 <body>
     <header>

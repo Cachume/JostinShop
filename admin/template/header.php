@@ -35,8 +35,8 @@
                 $db = New Database();
                 $dolar = $db->getPreciodolar();
                 //var_dump($dolar);
-               // echo $dolar['precio'];
-                echo "<span class='BCVdolar'> Precio del dolar:<strong> ".$dolar['precio']." Bs</strong></span>";
+               // echo $dolar['precio'];echo number_format($dolar['precio'],2,",",".");
+                echo "<span class='BCVdolar'> Precio del dolar:<strong> ".number_format($dolar['precio'],2,",",".")." Bs</strong></span>";
             ?> 
             <div class="perfil-usuario">
                 <img src="https://cdn-icons-png.flaticon.com/512/6073/6073873.png" width="100" alt="Foto de Usuario">

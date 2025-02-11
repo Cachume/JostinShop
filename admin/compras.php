@@ -41,7 +41,7 @@
 
                 <span class="cerrar-modal">&times;</span>
 
-                <h2>Detalles de la Compra</h2>
+                <h2>Detalles de la Compraasdasdasds2</h2>
                 <div class="detalles-compra">
                     <p><strong>Nombre:</strong> <span id="nombres">Deviam</span></p>
                     <p><strong>Apellido:</strong> Trusman<span id="apellidos"></span></p>
@@ -69,7 +69,7 @@
                 <h2>¿Seguro de aceptar esta compra?</h2>
 
                 <div class="detalles-compra">
-                    <h3><strong>Datos de la compra</strong></h3>
+                    <h3><strong>Datos de la comprassss</strong></h3>
                     <p><strong>Nombre:</strong> <span id="nombres">Deviam</span></p>
                     <p><strong>Apellido:</strong> Trusman<span id="apellidos"></span></p>
                     <p><strong>Teléfono:</strong><span id="telefono">+58 414-3512548</span></p>
