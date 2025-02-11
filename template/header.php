@@ -53,8 +53,10 @@
             <!-- Contenido del menú lateral -->         
             <ul>
                 <img src="src/x.png" alt="" onclick="menuShow();">
-                <li><a href="#">Inicio</a></li>
-                <li><a href="./Catalago.html">Catálogo</a></li>
+                <li><a href="index.php">Inicio</a></li>
+                <li><a href="catalogo.php">Catálogo</a></li>
+                <li><a href="login.php">Iniciar Sesion</a></li>
+                <li><a href="carrito.php">Carrito</a></li>
                 <li><a href="#">Contacto</a></li>
                 <!-- Agrega más enlaces según sea necesario -->
             </ul>

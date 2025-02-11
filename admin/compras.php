@@ -13,52 +13,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr data-referencia="12345">
-                        <td><a href="#" class="ver-detalle">12345</a></td>
-                        <td>Tarjeta de Crédito</td>
-                        <td>2023-10-01</td>
-                        <td>
-                            <button class="aceptar-compra" data-referencia="12345">Aceptar</button>
-                            <button class="rechazar-compra" data-referencia="12345">Rechazar</button>
-                        </td>
-                    </tr>
-                    <tr data-referencia="67890">
-                        <td><a href="#" class="ver-detalle">67890</a></td>
-                        <td>PayPal</td>
-                        <td>2023-10-02</td>
-                        <td>
-                            <button class="aceptar-compra" data-referencia="67890">Aceptar</button>
-                            <button class="rechazar-compra" data-referencia="67890">Rechazar</button>
-                        </td>
-                    </tr>
+                    <?php include('./controllers/adminCompras.php');?>
                 </tbody>
             </table>
         </section>
-
-        <div class="ventana-modal" id="ventanaModalDetalles">
-
-            <div class="modal-contenido">
-
-                <span class="cerrar-modal">&times;</span>
-
-                <h2>Detalles de la Compraasdasdasds2</h2>
-                <div class="detalles-compra">
-                    <p><strong>Nombre:</strong> <span id="nombres">Deviam</span></p>
-                    <p><strong>Apellido:</strong> Trusman<span id="apellidos"></span></p>
-                    <p><strong>Teléfono:</strong><span id="telefono">+58 414-3512548</span></p>
-                    <p><strong>Cédula/RIF:</strong><span id="cedula">J-23.245.111-7</span></p>
-                    <p><strong>Correo:</strong> <span id="correo">asd@gmail.com</span></p>
-                    <p><strong>COMPRAS REALIZADAS:</strong><span id="compras">
-                    <ul>
-                        <li>camisa</li>
-                        <li>pantalones</li>
-                    </ul></span></p>
-                    <p><strong>Identificador de compra:</strong> <span id="referencia">12345</span></p>
-                    <p><strong>Capture:</strong></p>
-                    <img id="capture" src="../src/capture.png" alt="Captura de la Compra">
-                </div>
-            </div>
-        </div>
+        
+        
 
         <div class="ventana-modal" id="ventanaModalAceptar">
 

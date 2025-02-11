@@ -295,6 +295,45 @@
             } 
         }
 
+        public function getPedido($pid){
+            try {
+                $query = $this->dbc->prepare("SELECT p.*, u.email, u.cdi FROM pedidos p JOIN clientes u ON p.id_usuario = u.id WHERE p.id=?");
+                $query->bind_param("i",$pid);
+                $query->execute();
+                $resultado= $query->get_result();
+                if($resultado->num_rows > 0){
+                    // var_dump($resultado->fetch_assoc());
+                    $datos =$resultado->fetch_assoc();
+                    return $datos;
+                }else{
+                    // echo("No hay datos");
+                    return false;
+                }
+            }catch (Exception $th) {
+                echo($th->getMessage());
+                return 'E82';
+            } 
+        }
+
+        public function getPedidosbuy($id){
+            try {
+                $query = $this->dbc->prepare("SELECT pi.id_producto, prod.nombre_producto, pi.cantidad, pi.precio FROM pedidos_items pi JOIN productos prod ON pi.id_producto = prod.id_producto WHERE pi.id_pedidos =
+                ?");
+                $query->bind_param('i',$id);
+                $query->execute();
+                $resultado = $query->get_result();
+                if($resultado->num_rows > 0){
+                    return $resultado->fetch_all(MYSQLI_ASSOC);
+                }else{
+                    // echo("No hay datos");
+                    return false;
+                }
+            }catch (Exception $th) {
+                echo($th->getMessage());
+                return 'E82';
+            } 
+        }
+
         public function __destruct(){
             $this->dbc->close();
         }
