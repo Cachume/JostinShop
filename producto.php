@@ -5,7 +5,7 @@ include_once("template/header.php");
 ?>
 <body>
     <main class="main_producto">
-        <div class="contenedor">
+        <div class="contenedor_producto">
 
             <div class="producto">
 

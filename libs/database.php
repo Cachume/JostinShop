@@ -246,13 +246,13 @@
             } 
         }
 
-        public function createPedido($uid,$fullname,$phone,$tusd,$tbs,$pr,$pi,$carrito_json){
+        public function createPedido($uid,$fullname,$phone,$tusd,$tbs,$pr,$pi,$carrito_json,$pago){
             try {
                 $this->dbc->begin_transaction();
-                $sql="INSERT INTO pedidos (id_usuario,nombre_completo,telefono,total_bs,total_usd,pago_referencia,pago_imagen)
-                VALUES (?,?,?,?,?,?,?)";
+                $sql="INSERT INTO pedidos (id_usuario,nombre_completo,telefono,total_bs,total_usd,pago_referencia,pago_imagen,pago_tipo)
+                VALUES (?,?,?,?,?,?,?,?)";
                 $pedido = $this->dbc->prepare($sql);
-                $pedido->bind_param("issddss",$uid,$fullname,$phone,$tbs,$tusd,$pr,$pi);
+                $pedido->bind_param("issddsss",$uid,$fullname,$phone,$tbs,$tusd,$pr,$pi,$pago);
                 $pedido->execute();
                 $pedido_id=$pedido->insert_id;
                 $pedido->close();
@@ -276,6 +276,23 @@
                 echo "Error al guardar el pedido: " . $e->getMessage();
                 return false;
             }
+        }
+
+        public function getPedidos(){
+            try {
+                $query = $this->dbc->prepare("SELECT * FROM pedidos");
+                $query->execute();
+                $resultado = $query->get_result();
+                if($resultado->num_rows > 0){
+                    return $resultado->fetch_all(MYSQLI_ASSOC);
+                }else{
+                    // echo("No hay datos");
+                    return false;
+                }
+            }catch (Exception $th) {
+                echo($th->getMessage());
+                return 'E82';
+            } 
         }
 
         public function __destruct(){

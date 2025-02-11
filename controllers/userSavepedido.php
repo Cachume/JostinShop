@@ -78,7 +78,8 @@
         'apellido' => $_POST['apellido'],
         'telefono' => $_POST['telefono'],
         'referencia' => $_POST['referencia-pago'],
-        'carrito' => $_POST['cart']
+        'carrito' => $_POST['cart'],
+        'metodo' => $_POST['pago']
     ];
     // var_dump($input);
     // exit();
@@ -93,7 +94,7 @@
         $foto_temp=$_FILES['comprobante-pago']['tmp_name'];
         $hora_actual=$fecha->format('YmdHis');
         $nombre_foto=$hora_actual."__".$_FILES['comprobante-pago']['name'];
-        $pedidocon = $sysdb->createPedido($_SESSION['id'],$fullname,$input['telefono'],$_POST['usd'],$_POST['bs'],$input['referencia'],$nombre_foto,$input['carrito']);
+        $pedidocon = $sysdb->createPedido($_SESSION['id'],$fullname,$input['telefono'],$_POST['usd'],$_POST['bs'],$input['referencia'],$nombre_foto,$input['carrito'],$input['metodo']);
         if($pedidocon === true){
             try {
                 move_uploaded_file($foto_temp,"../src/comprobantes/".$nombre_foto);

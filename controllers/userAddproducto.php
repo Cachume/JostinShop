@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     // var_dump($compra_producto);
                     // exit();
                 }else{
-                    header("location:../catalogo.php?success=Producto agregado correctamente al carrito.");
+                    header("location:../carrito.php?s=Producto agregado correctamente al carrito.");
                 }
             }else{
                 header("location:../producto.php?c=$c&p=$p&error=Cantidad solicitada no disponible");

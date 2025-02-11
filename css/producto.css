@@ -11,6 +11,15 @@ body {
     padding-top:8rem;
 }
 
+.contenedor_producto {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    background-color: #fff;
+    padding: 20px;
+    border: none;
+}
+
 .contenedor {
     width: 80%;
     margin: auto;

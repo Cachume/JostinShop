@@ -53,7 +53,7 @@
             <div class="metodo-pago">
 
                 <h2>Elige tu Método de Pago</h2>
-                <select id="selector-pago">
+                <select id="selector-pago" name="pago">
 
                     <option value="">Selecciona una opción</option>
                     <!-- <option value="efectivo">Efectivo</option> -->
