@@ -69,6 +69,7 @@ if(isset($_POST['authlogin'])){
                     <span></span>
                 </div>
                 <a href="register.php">¿No tienes una Cuenta?</a>
+                <a href="recuperar.php">Recuperar Contraseña</a>
                 <a href="index.php">Regresar al Inicio</a>
                 <button type="submit" name="authlogin">Continuar</button>
             </form>

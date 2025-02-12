@@ -86,7 +86,7 @@ include_once("template/header.php");
                 Contactar por WhatsApp
                 </a>
             </div>
-            <div id="comentarios" class="contenido-pestana">
+            <div id="comentarios" class="contenido-pestana" style="display:none;">
                 <h2>COMENTARIOS</h2>
                 <br>
                 <p>Algun Comentario x</p>

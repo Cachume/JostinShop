@@ -18,35 +18,19 @@
             <form action="" method="post" id="form">
                 <div class="auth-title">
                     <img src="src/agregarn.png" alt="" srcset="">
-                    <h1>Registro</h1>
-                    <p>Hola amigo. Ingresa tus datos para Continuar!</p>
-                    
+                    <h1>Recuperar Contraseña</h1>
+                    <p>Hola amigo. Ingresa tus datos para Recuperar tu contraseña!</p>                    
                 </div>
                 <div class="auth-input">
-                    <input type="text" name="useremail" id="email" placeholder="Correo Electronico:">
-                    <span></span>
-                </div>
-                <div class="auth-input">
-                    <input type="number" name="usercdi" id="cdi" placeholder="Cedula de Identidad:" >
-                    <span></span>
-                </div>
-                <div class="auth-input">
-                    <input type="password" name="userpass" id="pass" placeholder="Contraseña:" >
-                    <span></span>
-                </div>
-                <div class="auth-input">
-                    <input type="password" name="userpassc" id="passc" placeholder="Confirmar Contraseña:" >
+                    <input type="text" name="useremail" id="email"  placeholder="Correo Electronico:">
                     <span></span>
                 </div>
                 <a href="login.php">Ya tengo una cuenta</a>
-                <button type="submit">Continuar</button>
+                <button type="submit">Recuperar Contraseña</button>
             </form>
             <div class="auth-info">
             <h2>¡Importante!</h2>
             <p>🔹 Usa un correo electrónico válido, recibirás un código de confirmación.</p>
-            <p>🔹 La cédula de identidad debe ser un número sin puntos ni guiones.</p>
-            <p>🔹 La contraseña debe tener al menos 8 caracteres, una mayúscula y un número.</p>
-            <p>🔹 Confirma tu contraseña correctamente antes de continuar.</p>
             <p>✅ Tus datos estarán seguros con nosotros.</p>
             </div>
         </div>

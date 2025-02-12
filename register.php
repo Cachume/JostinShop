@@ -60,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </header>
     <main class="main-auth">
         <div class="auth-container">
-            <form action="" method="post">
+            <form action="" method="post" id="form">
                 <div class="auth-title">
                     <img src="src/agregarn.png" alt="" srcset="">
                     <h1>Registro</h1>
@@ -73,19 +73,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     
                 </div>
                 <div class="auth-input">
-                    <input type="text" name="useremail" id="" placeholder="Correo Electronico:">
+                    <input type="text" name="useremail" id="email"  placeholder="Correo Electronico:">
                     <span></span>
                 </div>
                 <div class="auth-input">
-                    <input type="number" name="usercdi" id="" placeholder="Cedula de Identidad:" >
+                    <input type="number" name="usercdi" id="cdi" placeholder="Cedula de Identidad:" >
                     <span></span>
                 </div>
                 <div class="auth-input">
-                    <input type="password" name="userpass" id="" placeholder="Contraseña:" >
+                    <input type="password" name="userpass" id="pass" placeholder="Contraseña:" >
                     <span></span>
                 </div>
                 <div class="auth-input">
-                    <input type="password" name="userpassc" id="" placeholder="Confirmar Contraseña:" >
+                    <input type="password" name="userpassc" id="passc" placeholder="Confirmar Contraseña:" >
                     <span></span>
                 </div>
                 <a href="login.php">Ya tengo una cuenta</a>
