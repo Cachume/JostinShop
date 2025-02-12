@@ -101,5 +101,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </div>
     </main>
+    <script src="js/register.js"></script>
 </body>
 </html>

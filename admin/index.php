@@ -2,6 +2,7 @@
             include "./template/header.php";
             $sysdb= new Database();
             $total_usuarios = $sysdb->getContar("clientes");
+            $total_ventas = $sysdb->getVentas();
             
         ?>
         
@@ -16,8 +17,9 @@
                 </div>
                 <div class="tarjeta">
                     <div>
-                        <h3>Ventas Mensuales</h3>
-                        <p>$12,000</p>
+                        <h3>Total Ventas</h3>
+                        <p>$ <?=$total_ventas['totalusd']?></p>
+                        <p>BS <?=$total_ventas['totalbs']?></p>
                     </div>
                     <i class="fas fa-dollar-sign fa-2x"></i>
                 </div>

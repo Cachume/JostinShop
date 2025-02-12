@@ -598,6 +598,38 @@
 
         }
 
+        public function getVentas(){
+            try {
+                $query = $this->dbc->prepare("SELECT total_usd, total_bs FROM pedidos WHERE pago_estado = 'verificado'");
+                $query->execute();
+                $resultado = $query->get_result();
+                if($resultado->num_rows > 0){
+                    $resultado->fetch_all(MYSQLI_ASSOC);
+                    $totalbs=0.0;
+                    $totalusd=0.0;
+                    foreach ($resultado as $value) {
+                        $totalbs=+ $value['total_bs'];
+                        $totalusd=+ $value['total_usd'];
+                    }
+                    $total = array(
+                        "totalbs" => $totalbs,
+                        "totalusd" => $totalusd
+                    );
+                    return $total;
+                }else{
+                    $total = array(
+                        "totalbs" => 0,
+                        "totalusd" => 0
+                    );
+                    return $total;
+                }
+            } catch (Exception $th) {
+                echo($th->getMessage());
+                echo "<script>alert('".$th->getMessage()."');</script>";
+                return 'E82';
+            } 
+        }
+
         public function __destruct(){
             $this->dbc->close();
         }

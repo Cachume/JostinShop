@@ -21,7 +21,6 @@
                     <a href="index.php">INICIO</a>
                     <a href="catalogo.php">CATALOGO</a>
                     
-                    <a href="index.html">NOSOTROS</a>
                     <?php
                     session_start();
                         if(isset($_SESSION['id'])){
