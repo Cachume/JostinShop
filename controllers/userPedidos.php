@@ -18,6 +18,9 @@ if(!isset($_GET['pedido'])){
         echo "<span class='pedido_referencia'> Referencia: <strong>$referencia</strong></span>";
         echo "<span class='pedido_metodo'>Metodo de Pago: <strong>$metodo_pago</strong></span>";
         echo "<span class='pedido_estado'>Estado del pedido: <strong class='$estado'>$estado</strong></span>";
+        echo "<a href='https://wa.me/1234567890' class='whatsapp-button'>
+                Contactanos
+                </a>";
         echo "<a href='pedidos.php?pedido=$id' class='pedido_ver'>Mas Detalles</a>";
         echo '</div>';
 

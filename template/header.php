@@ -20,7 +20,7 @@
                 <nav class="header-nav">
                     <a href="index.php">INICIO</a>
                     <a href="catalogo.php">CATALOGO</a>
-                    
+                    <a href='https://wa.me/1234567890'>CONTACTANOS</a>
                     <?php
                     session_start();
                         if(isset($_SESSION['id'])){
@@ -75,6 +75,7 @@
                 <img src="src/x.png" alt="" onclick="menuShow();">
                 <li><a href="index.php">Inicio</a></li>
                 <li><a href="catalogo.php">Catálogo</a></li>
+                <li><a href='https://wa.me/1234567890'>Contactanos</a></li>
                 <?php
                     if(isset($_SESSION['id'])){
                         echo '<li><a href="pedidos.php">Pedidos</a></li>';
