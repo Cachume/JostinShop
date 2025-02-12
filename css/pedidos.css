@@ -1,208 +1,62 @@
-/* Estilos para la tabla de historial de compras */
-.main_pedidos{
+body{
+    margin: 0;
+    padding:0;
+    background: #efefef;
+}
+
+.pedidos{
     display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 7rem;
-  flex-direction: column;
-
+    flex-direction: column;
+    align-items: center;
 }
 
-
-.body_pedidos{
-    background: #18293d;
+.pedidos_titulo h1{
+    font-family:sans-serif;
+    color: #18293d;
 }
 
-.historial-compras {
-    margin-top: 20px;
+.pedidos_items{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
-.tabla-compras {
-    width: 100%; /* Se ajusta al contenedor */
-    max-width: 800px; 
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-.tabla-compras thead {
-    background-color: #3d7ba8;
-    color: white;
-}
-
-.tabla-compras th, .tabla-compras td {
-    padding: 10px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-}
-
-.tabla-compras tbody tr:nth-child(odd) {
-    background-color: #efefef;
-}
-
-.tabla-compras tbody tr:hover {
-    background-color: #ddd;
-}
-
-.ver-detalle {
-    color: #16a085;
-    text-decoration: none;
-}
-
-.ver-detalle:hover {
-    text-decoration: underline;
-}
-
-/* Estilos para los botones de acción */
-.aceptar-compra, .rechazar-compra {
-    padding: 5px 10px;
-    margin: 2px;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    color: white;
-    font-weight: bold;
-}
-
-.aceptar-compra {
-    background-color: #2ecc71;
-}
-
-.rechazar-compra {
-    background-color: #e74c3c;
-}
-
-/* Estilos para la ventana modal */
-.ventana-modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
-}
-
-.modal-contenido {
-    background-color: #fefefe;
-    margin: 8% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 600px;
-    max-height: 80%;
-    overflow-y: auto;
-    border-radius: 10px;
+.pedido_item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: white;
     box-sizing: border-box;
+    padding: 10px 50px;
+    border-radius: 20px;
+    border:1px solid green;
 }
 
-.cerrar-modal {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+.pedido_item img{
+    width: 100px;
+    background: white;
+    border-radius: 300px;
+    margin-bottom: 1rem;
 }
 
-.cerrar-modal:hover,
-.cerrar-modal:focus {
-    color: black;
+.pedido_ver{
+    background: rgb(255, 117, 20);
     text-decoration: none;
-    cursor: pointer;
-}
-
-.detalles-compra img {
-    max-width: 100%;
-    height: 600px;
-    margin-top: 10px;
-}
-
-/* Deshabilita el desplazamiento del cuerpo principal cuando la ventana modal esté abierta */
-body.modal-abierto {
-    overflow: hidden;
-}
-
-.ventana-modal{
-    overflow: hidden;
-}
-/* Estilos para la ventana modal */
-.ventana-modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.7);
-    padding-top: 60px;
-}
-
-.modal-contenido {
-    background-color: #fefefe;
-    margin: 5% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 600px;
-    max-height: 80%;
-    overflow-y: auto;
+    color: white;
+    padding: 4px 10px;
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    box-sizing: border-box;
-    animation: fadeIn 0.5s;
+    margin-top: 1rem;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+.pendiente{
+    color: rgb(255, 117, 20);
 }
 
-.cerrar-modal {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
+.verificado{
+    color: rgb(20, 255, 71);
 }
 
-.cerrar-modal:hover,
-.cerrar-modal:focus {
-    color: #000;
-    text-decoration: none;
-}
-
-.detalles-compra {
-    margin-top: 20px;
-}
-
-.detalles-compra p {
-    margin: 10px 0;
-}
-
-.detalles-compra strong {
-    font-weight: bold;
-}
-
-.detalles-compra img {
-    max-width: 100%;
-    height: auto;
-    margin-top: 10px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.detalles-compra ul {
-    list-style-type: disc;
-    padding-left: 20px;
-}
-
-.detalles-compra ul li {
-    margin: 5px 0;
+.rechazado{
+    color: rgb(255, 0, 0);
 }

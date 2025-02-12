@@ -92,8 +92,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <button type="submit">Continuar</button>
             </form>
             <div class="auth-info">
-                <img src="" alt="" srcset="">
-                
+            <h2>¡Importante!</h2>
+            <p>🔹 Usa un correo electrónico válido, recibirás un código de confirmación.</p>
+            <p>🔹 La cédula de identidad debe ser un número sin puntos ni guiones.</p>
+            <p>🔹 La contraseña debe tener al menos 8 caracteres, una mayúscula y un número.</p>
+            <p>🔹 Confirma tu contraseña correctamente antes de continuar.</p>
+            <p>✅ Tus datos estarán seguros con nosotros.</p>
             </div>
         </div>
     </main>

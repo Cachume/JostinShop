@@ -1,7 +1,6 @@
         <?php 
-            include_once("./controllers/adminCatalogo.php");
             include "./template/header.php";
-
+            include_once("./controllers/adminCatalogo.php");
             if (isset($_GET['s']) || isset($_GET['e'])) {
                 $class = isset($_GET['s']) ? "success" : "error";
                 $message = isset($_GET['s']) ? htmlspecialchars($_GET['s']) : htmlspecialchars($_GET['e']);

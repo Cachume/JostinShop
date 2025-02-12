@@ -9,7 +9,7 @@ if (isset($_GET['p'])) {
         $producto = (int)$valor;
         $catalogo= $sysdb->getProductos($producto);
         if(!$catalogo){
-            echo "No hay Productos disponibles";
+            echo "<span class='nodisponible'>No hay catalogos disponibles.</span>";
         }else{
          //var_dump($catalogo);
             foreach ($catalogo as $value) {
@@ -33,7 +33,7 @@ if (isset($_GET['p'])) {
 }else{   
     $catalogo= $sysdb->getCatalogo();    
     if(!$catalogo){
-        echo "No hay Productos disponibles";
+        echo "<span class='nodisponible'>No hay catalogos disponibles.</span>";
     }else{
      //var_dump($catalogo);
         foreach ($catalogo as $value) {
