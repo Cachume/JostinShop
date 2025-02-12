@@ -39,7 +39,7 @@ include_once("template/header.php");
                         <img class="corazon-like" src="./src/heart.png" alt="Añadir a la lista de deseos">
                         <span>AÑADIR A LA LISTA DE DESEOS</span>
                     </div> -->
-                    <a href="https://wa.me/1234567890" class="whatsapp-button">
+                    <a href="https://wa.me/1234567890" class="whatsapp-button" style="width: 250px;">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="whatsapp-logo" alt="WhatsApp Logo">
                 Contactar por WhatsApp
                 </a>
@@ -81,7 +81,7 @@ include_once("template/header.php");
                 <p><strong>*</strong> Se despachan el mismo día cancelando antes de medio día, no atendemos urgencias, haga todas las
                     preguntas correspondientes antes de ofertar.</p>
                 <p><strong>*</strong> Pregunte por la disponibilidad del Producto antes de Ofertar</p>
-                <a href="https://wa.me/1234567890" class="whatsapp-button">
+                <a href="https://wa.me/1234567890" class="whatsapp-button" style="width: 250px;">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="whatsapp-logo" alt="WhatsApp Logo">
                 Contactar por WhatsApp
                 </a>
