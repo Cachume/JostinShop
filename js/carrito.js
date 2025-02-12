@@ -49,13 +49,13 @@ selectorPago.addEventListener('change', () => {
 
 //OPCIONAL
 // Eliminamos productos del carrito
-botonesEliminar.forEach(boton => {
-    boton.addEventListener('click', (e) => {
-        const itemCarrito = e.target.closest('.item-carrito');
-        itemCarrito.remove();
-        actualizarPrecioTotal();
-    });
-});
+// botonesEliminar.forEach(boton => {
+//     boton.addEventListener('click', (e) => {
+//         const itemCarrito = e.target.closest('.item-carrito');
+//         itemCarrito.remove();
+//         actualizarPrecioTotal();
+//     });
+// });
 
 // Actualizamos la cantidad del campo input
 entradasCantidad.forEach(entrada => {

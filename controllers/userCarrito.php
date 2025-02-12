@@ -7,6 +7,7 @@
     $carrito =$sysdb->getCarrito($_SESSION['id']);
     if($carrito){
         foreach ($carrito as $value) {
+            $id=$value['id_producto'];
             $imagen=$value['imagen_producto'];
             $nombre=$value['nombre_producto'];
             $precio=$value['precio'];
@@ -21,7 +22,7 @@
             echo("<input type='text' value='1' class='entrada-cantidad'>");
             echo("<button class='boton-cantidad mas'>+</button>");
             echo("</div>");
-            echo("<button class='boton-eliminar'>Eliminar</button>");
+            echo("<a class='boton-eliminar' href='controllers/userEliminarproducto.php?producto=$id'>Eliminar</a>");
             echo("</div>");   
             echo("</div>");
             $total += $precio*$cantidad;

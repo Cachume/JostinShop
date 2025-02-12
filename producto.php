@@ -26,10 +26,7 @@ include_once("template/header.php");
                     <h1><?php echo($producto['nombre_producto']); ?></h1>
                     <p class="precio">$<?php echo($producto['precio']); ?></p>
                     <div class="redes-sociales">
-                        <span>Compartir:</span>
-                        <img src="./src/youtube-black.png" alt="Share on Youtube">
-                        <img src="./src/twitter-black.png" alt="Share on Twitter">
-                        <img src="./src/instagram-black.png" alt="Share on Instagram">
+                        <span>Producto(s) Disponibles: <?php echo($producto['stock']); ?></span>
                     </div>
                     <!-- <button class="boton-comprar" hidden><p>COMPRAR POR WHATSAPP</p></button> -->
                     <form action="controllers/useraddProducto.php" method="POST" class="cantidad">
@@ -42,6 +39,10 @@ include_once("template/header.php");
                         <img class="corazon-like" src="./src/heart.png" alt="Añadir a la lista de deseos">
                         <span>AÑADIR A LA LISTA DE DESEOS</span>
                     </div> -->
+                    <a href="https://wa.me/1234567890" class="whatsapp-button">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="whatsapp-logo" alt="WhatsApp Logo">
+                Contactar por WhatsApp
+                </a>
                     <div class="opciones-pago" style="display:none;">
                         <img src="./src/paypal.png" alt="PayPal">
                         <img src="./src/visa.png" alt="Visa">
@@ -56,6 +57,7 @@ include_once("template/header.php");
 
             <div id="descripcion" class="contenido-pestana activa">
                 <h2>DESCRIPCIÓN</h2>
+                <p><?php echo($producto['descripcion_producto']); ?></p>
                 <br>
 
                 <p><strong>Horario de atención:</strong></p>
@@ -79,6 +81,10 @@ include_once("template/header.php");
                 <p><strong>*</strong> Se despachan el mismo día cancelando antes de medio día, no atendemos urgencias, haga todas las
                     preguntas correspondientes antes de ofertar.</p>
                 <p><strong>*</strong> Pregunte por la disponibilidad del Producto antes de Ofertar</p>
+                <a href="https://wa.me/1234567890" class="whatsapp-button">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="whatsapp-logo" alt="WhatsApp Logo">
+                Contactar por WhatsApp
+                </a>
             </div>
             <div id="comentarios" class="contenido-pestana">
                 <h2>COMENTARIOS</h2>

@@ -12,11 +12,11 @@ if(isset($_GET['c']) and isset($_GET['p'])){
         $producto = $sysdb->getProducto($p);
         if(!$producto){
             echo "No hay productos con ese id."; 
-        }else{
-            //var_dump($producto);
+            header("location:catalogo.php");
         }
     } else {
         echo "Los parámetros deben ser solo números.";
+        header("location:catalogo.php");
     }
 }else{
     echo("Error en el url");

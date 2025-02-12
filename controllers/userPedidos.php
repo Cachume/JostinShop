@@ -5,18 +5,6 @@ $sysdb= new Database();
 if(!isset($_GET['pedido'])){
     $pedidos = $sysdb->getPedidosuser($_SESSION['id']);
     if($pedidos){
-    echo '<section class="historial-compras"  >
-    <h1>Historial de Pedidos</h1>
-    <table class="tabla-compras">
-                <thead>
-                    <tr>
-                        <th>Referencia</th>
-                        <th>Método de Pago</th>
-                        <th>Fecha</th>
-                        <th>Estado</th>
-                    </tr>
-                </thead>
-                <tbody>';
     foreach ($pedidos as $value) {
         $id=$value['id'];
         $referencia = $value['pago_referencia'];
@@ -25,16 +13,16 @@ if(!isset($_GET['pedido'])){
         $estado = $value['pago_estado'];
 
     
-        echo '<tr data-referencia="' . $referencia . '">';
-        echo '    <td><a href="pedidos.php?pedido='.$id.'" target="_blank" class="ver-detalle">' . $referencia . '</a></td>';
-        echo '    <td>' . $metodo_pago . '</td>';
-        echo '    <td>' . $fecha . '</td>';
-        echo '    <td>'.$estado.'</td>';
-        echo '</tr>';
+        echo '<div class="pedido_item">';
+        echo "<img src='./src/$estado.png' alt='' srcset=''>";
+        echo "<span class='pedido_referencia'> Referencia: <strong>$referencia</strong></span>";
+        echo "<span class='pedido_metodo'>Metodo de Pago: <strong>$metodo_pago</strong></span>";
+        echo "<span class='pedido_estado'>Estado del pedido: <strong class='$estado'>$estado</strong></span>";
+        echo "<a href='pedidos.php?pedido=$id' class='pedido_ver'>Mas Detalles</a>";
+        echo '</div>';
 
     }
-    echo '    </tbody>
-    </table>';}
+}
     }else{
             if (ctype_digit($_GET['pedido'])){
                 $pedidourl=intval(($_GET['pedido']));
@@ -49,7 +37,7 @@ if(!isset($_GET['pedido'])){
                 $imagen_capture = $pedidos['pago_imagen'];
                 $cedula = $pedidos['cdi'];
                 $correo = $pedidos['email'];
-                echo $pedidos['id_usuario'].$_SESSION['id'];
+               // echo $pedidos['id_usuario'].$_SESSION['id'];
                 
                 //var_dump($pedidos);
     
@@ -64,7 +52,7 @@ if(!isset($_GET['pedido'])){
                         <p><strong>COMPRAS REALIZADAS:</strong></p>
                         <ul id='compras'>";
                 foreach ($pedidos_productos as $compra) {
-                    echo "<li>".$compra['nombre_producto']."<strong> X </strong>".$compra['cantidad']."= ".$compra['precio']."</li>";
+                    echo "<li>".$compra['nombre_producto']."<strong> X </strong>".$compra['cantidad']."= ".$compra['precio']*$compra['cantidad']."$</li>";
                 }
                 echo "</ul>
                 <p><strong>Identificador de compra:</strong> <span id='referencia'>$referencia</span></p>

@@ -84,6 +84,7 @@
     width: 100%;
     border-radius: 70%;
     display: block;
+    height: 270px;
 }
 
 .categoria h3 {
@@ -97,6 +98,32 @@
     border-radius: 90px;
     color: white;
 }
+
+.link_categoria{
+    text-decoration: none;
+    color:white;
+}
+
+.whatsapp-button {
+    background-color: #25D366;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+    width: 250px;
+    margin-top:10px;
+  }
+
+  .whatsapp-logo {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+  }
 
 .Acerca-de {
     position: relative;

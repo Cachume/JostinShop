@@ -11,25 +11,7 @@
     
         <div class="categorias">
     
-            <div class="categoria">
-                <img src="src/Franelas.png" alt="Franelas">
-                <h3>FRANELAS</h3>
-            </div>
-    
-            <div class="categoria">
-                <img src="src/Gorras.png" alt="Gorras">
-                <h3>GORRAS</h3>
-            </div>
-    
-            <div class="categoria">
-                <img src="src/Perfumes.png" alt="Perfumes">
-                <h3>PERFUMES</h3>
-            </div>
-    
-            <div class="categoria">
-                <img src="src/Deporte.png" alt="Deportes">
-                <h3>DEPORTES</h3>
-            </div>
+            <?php include "controllers/userCatalogoindex.php";?>
     
         </div>
     

@@ -563,6 +563,41 @@
 
         }
 
+        public function getCatalogosshow(){
+            try {
+                $query = $this->dbc->prepare("SELECT * FROM catalogo ORDER BY id_categoria DESC LIMIT 4; ");
+                $query->execute();
+                $resultado = $query->get_result();
+                if($resultado->num_rows > 0){
+                    return $resultado->fetch_all(MYSQLI_ASSOC);
+                }else{
+                    return false;
+                }
+            } catch (Exception $th) {
+                echo($th->getMessage());
+                echo "<script>alert('".$th->getMessage()."');</script>";
+                return 'E82';
+            } 
+        }
+
+        public function deleteCompra($producto){
+            try {
+                $query = $this->dbc->prepare("DELETE FROM carrito WHERE id_carrito=?");
+                $query->bind_param('i', $producto);
+                $query->execute();
+                if($query->affected_rows > 0){
+                    return true;
+                }else{
+                    return false;
+                }
+            } catch (Exception $th) {
+                echo($th->getMessage());
+                echo "<script>alert('".$th->getMessage()."');</script>";
+                return 'E82';
+            }  
+
+        }
+
         public function __destruct(){
             $this->dbc->close();
         }
